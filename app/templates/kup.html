@@ -1,0 +1,171 @@
+{% load static %}
+{% include 'basic/header.html' %}
+<div class="main-content">
+    <!-- Spotlight -->
+    <section class="slice slice-lg pb-200 bg-gradient-primary" data-offset-top="#header-main">
+      <div class="container py-6 pt-xl-9">
+        <div class="row row-grid justify-content-center">
+          <div class="col-lg-6 text-center">
+            <h6 class="text-sm text-uppercase text-white">Opis pakietu</h6>
+            <h2 class="h1 text-white">Wybierz najlepszy pakiet dla swojej firmy</h2>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="slice">
+      <div class="container">
+        <div class="row justify-content-center mt--200">
+          <div class="col-lg-12">
+            <div class="card-deck flex-column flex-md-row">
+      
+
+              <div class="card card-pricing popular shadow-lg scale-110 px-4 mr-0 mb-4">
+                <div class="card-header py-6 text-center border-0">
+                  <h4 class="mb-4">Plan Podstawowy</h4>
+                  <p class="text-muted">Najlepszy wybór do sprawdzenia skuteczności reklamowej naszego portalu.</p>
+                  <a href="{% url 'app:platnosc' %}" class="btn btn-sm btn-primary btn-icon rounded-pill hover-translate-y-n3 mt-4">
+                    <span class="btn-inner--icon"><i class="fas fa-shopping-cart"></i></span>
+                    <span class="btn-inner--text">Kup Teraz</span>
+                  </a>
+                </div>
+              </div>
+         
+              <div class="card card-pricing popular shadow-lg scale-110 px-4 mr-0 mb-4">
+                <div class="card-header py-6 text-center border-0">
+                  <h4 class="mb-4">Plan Biznes </h4>
+                  <p class="text-muted">Biznesowy pakiet reklamowy, kóry przyniesie wielu klientów dzięki reklamie na Youtube i naszym Blogu.</p>
+                  <a href="{% url 'app:platnosc' %}" class="btn btn-sm btn-primary btn-icon rounded-pill hover-translate-y-n3 mt-4">
+                    <span class="btn-inner--icon"><i class="fas fa-shopping-cart"></i></span>
+                    <span class="btn-inner--text">Kup teraz</span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="card card-pricing popular shadow-lg scale-110 px-4 mr-0 mb-4">
+                <div class="card-header py-6 text-center border-0">
+                  <h4 class="mb-4">Plan Dla Najlepszych </h4>
+                  <p class="text-muted">Reklama specjalna dla największych polskich firm w UK. Nowi klienci gwarantowani.</p>
+                  <a href="{% url 'app:platnosc' %}" class="btn btn-sm btn-primary btn-icon rounded-pill hover-translate-y-n3 mt-4">
+                    <span class="btn-inner--icon"><i class="fas fa-shopping-cart"></i></span>
+                    <span class="btn-inner--text">Kup teraz</span>
+                  </a>
+                </div>
+              </div>
+            
+            </div>
+            <div class="table-responsive">
+              <table class="table mt-7">
+                <thead>
+                  <tr>
+                    <th class="px-0 bg-transparent" scope="col"><span class="text-muted font-weight-700">W Pakiecie</span></th>
+                    <th class="text-center bg-transparent" scope="col"><span>Dla najlepszych</span></th>
+                    <th class="text-center bg-transparent" scope="col"><span>Plan Biznes</span></th>
+                    <th class="text-center bg-transparent" scope="col"><span>Plan Podstawowy</span></th>
+                    <th class="text-center bg-transparent" scope="col"><span>Darmowy Plan</span></th>
+
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="px-0">Nazwa Firmy</td>
+                    <td class="text-center"><i class="fas fa-check text-success"></i></td>
+                    <td class="text-center"><i class="fas fa-check text-success"></i></td>
+                    <td class="text-center"><i class="fas fa-check text-success"></i></td>
+                    <td class="text-center"><i class="fas fa-check text-success"></i></td>
+
+                  </tr>
+                  <tr>
+                    <td class="px-0">Adre Firmys</td>
+                    <td class="text-center"><i class="fas fa-check text-success"></i></td>
+                    <td class="text-center"><i class="fas fa-check text-success"></i></td>
+                    <td class="text-center"><i class="fas fa-check text-success"></i></td>
+                    <td class="text-center"><i class="fas fa-check text-success"></i></td>  
+                </tr>
+                  <tr>
+                    <td class="px-0">Numer Telefonu</td>
+                    <td class="text-center"><i class="fas fa-check text-success"></i></td>
+                    <td class="text-center"><i class="fas fa-check text-success"></i></td>
+                    <td class="text-center"><i class="fas fa-check text-success"></i></td>
+                    <td class="text-center"><i class="fas fa-check text-success"></i></td>
+                  </tr>
+                  <tr>
+                    <td class="px-0">Adres Email</td>
+                    <td class="text-center"><i class="fas fa-check text-success"></i></td>
+                    <td class="text-center"><i class="fas fa-check text-success"></i></td>
+                    <td class="text-center"><i class="fas fa-check text-success"></i></td>                 
+                    <td class="text-center"><i class="fas fa-check text-success"></i></td>
+                  </tr>
+                  <tr>
+                    <td class="px-0">Adres Strony WWW</td>
+                    <td class="text-center"><i class="fas fa-check text-success"></i></td>
+                    <td class="text-center"><i class="fas fa-check text-success"></i></td>
+                    <td class="text-center"><i class="fas fa-check text-success"></i></td>
+                    <td class="text-center">-</td>
+
+                  </tr>
+                  <tr>
+                    <td class="px-0">Link do FB, Instagram, Google Maps</td>
+                    <td class="text-center"><i class="fas fa-check text-success"></i></td>
+                    <td class="text-center"><i class="fas fa-check text-success"></i></td>
+                    <td class="text-center"><i class="fas fa-check text-success"></i></td>
+                    <td class="text-center">-</td>
+
+                  </tr>
+                  <tr>
+                    <td class="px-0">Wpis na Blogu o twojej firmie</td>
+                    <td class="text-center"><i class="fas fa-check text-success"></i></td>
+                    <td class="text-center"><i class="fas fa-check text-success"></i></td>
+                    <td class="text-center">-</td>
+
+                    <td class="text-center">-</td>
+                  </tr>
+                  <tr>
+                    <td class="px-0">Film na YouTube o twojej firmie</td>
+                    <td class="text-center"><i class="fas fa-check text-success"></i></td>
+                    <td class="text-center"><i class="fas fa-check text-success"></i></td>
+                    <td class="text-center">-</td>
+                    <td class="text-center">-</td>
+
+                  </tr>
+                  <tr>
+                    <td class="px-0">Logo firmy w poleconych</td>
+                    <td class="text-center"><i class="fas fa-check text-success"></i></td>
+                    <td class="text-center">-</td>
+                    <td class="text-center">-</td>
+                    <td class="text-center">-</td>
+
+                  </tr>
+                  <tr>
+                    <td class="px-0">Cena</td>
+                    <td class="text-center">20 £/miesiąc</td>
+                    <td class="text-center">10 £/miesiąc</td>
+                    <td class="text-center">5 £/miesiąc</td>
+                    <td class="text-center">Za Darmo</td>
+
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Call to action -->
+    <section class="slice slice-lg bg-section-secondary" id=sct-call-to-action><a href="#sct-call-to-action" class="tongue tongue-up" data-scroll-to>
+        <i class="fas fa-angle-up"></i>
+      </a>
+      <div class="container">
+        <div class="row justify-content-center align-items-center">
+          <div class="col-lg-8 text-center">
+            <h3 class="font-weight-400">Chcę dodać darmowe ogłoszenie mojej firmy w <span class="font-weight-700">Niezbędniku</span> Emigranta.</h3>
+            <div class="mt-5">
+              <a href="{% url 'katalog:dodajfirme' %}" class="btn btn-primary rounded-pill hover-translate-y-n3">
+            Dodaj za darmo
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+{% include 'basic/footer.html' %}

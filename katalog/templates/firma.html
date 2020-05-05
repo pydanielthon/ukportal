@@ -1,0 +1,98 @@
+{% load static %}
+{% include 'basic/header.html' %}
+<div class="main-content pt-5 mt-5">
+
+  <section class="slice">
+    <div class="container">
+      <div class="row row-grid">
+        <div class="col-lg-6">
+          <div data-toggle="sticky" data-sticky-offset="30">
+            <a href="../../assets/img/theme/light/shop-product-lg-2.jpg" data-fancybox>
+              <img alt="Image placeholder" src="{{ katalogg.image.url }}" class="img-fluid">
+            </a>
+      
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="pl-lg-5">
+            <!-- Product title -->
+            <h5 class="h4">{{katalogg.name}}</h5>
+            <h6 class="text-sm">{{katalogg.category}}</h6>
+            <!-- Rating -->
+            <div class="row align-items-center">
+              
+      
+            </div>
+            <!-- Description -->
+            <div class="py-4 my-4 border-top border-bottom">
+              <h6 class="text-sm">Opis firmy: </h6>
+              <p class="text-sm mb-0">
+               {{katalogg.description}}
+              </p>
+            </div>
+            <dl class="row">
+              <dt class="col-sm-3"><span class="h6 text-sm mb-0">Adres</span></dt>
+              <dd class="col-sm-9"><span class="text-sm">{{katalogg.adres}}</span></dd>
+              <dt class="col-sm-3"><span class="h6 text-sm mb-0">Telefon</span></dt>
+              <dd class="col-sm-9"><span class="text-sm">{{katalogg.telefon}}</span></dd>
+              <dt class="col-sm-3"><span class="h6 text-sm mb-0">E-mail</span></dt>
+              <dd class="col-sm-9"><span class="text-sm">{{katalogg.mail}}</span></dd>
+              <dt class="col-sm-3"><span class="h6 text-sm mb-0">Strona WWW</span></dt>
+              <dd class="col-sm-9"><span class="text-sm">{{katalogg.www}}</span></dd>
+              <dt class="col-sm-3"><span class="h6 text-sm mb-0">Instagram</span></dt>
+              <dd class="col-sm-9"><span class="text-sm">{{katalogg.instagram}}</span></dd>
+              <dt class="col-sm-3"><span class="h6 text-sm mb-0">Facebook</span></dt>
+              <dd class="col-sm-9"><span class="text-sm">{{katalogg.fb}}</span></dd>
+              <dt class="col-sm-3"><span class="h6 text-sm mb-0">Google Maps</span></dt>
+              <dd class="col-sm-9"><span class="text-sm">{{katalogg.maps}}</span></dd>
+            </dl>
+            <!-- Size -->
+    
+     
+          
+         
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="slice slice-lg delimiter-top" id="sct-suggested-products">
+    <div class="container">
+      <div class="mb-5 text-center">
+        <h3 class="h6">Najlepsze polskie firmy w UK<i class="fas fa-angle-down text-xs ml-3"></i></h3>
+      </div>
+      <div class="row">
+        <div class="col-lg-3 col-sm-6">
+          <div class="card card-product">
+            <div class="card-image">
+              <a href="#">
+                <img alt="Image placeholder" src="../../assets/img/theme/light/product-1.png" class="img-center img-fluid">
+              </a>
+            </div>
+            <div class="card-body text-center pt-0">
+              <h6><a href="#">Home Base</a></h6>
+              <p class="text-sm">
+                Customize your home experience with this product.
+              </p>
+              <span class="card-price">$129 USD</span>
+           
+            </div>
+            <div class="actions card-product-actions" data-animation-in="slideInLeft" data-animation-out="slideOutLeft">
+              <button type="button" class="action-item" data-toggle="tooltip" data-original-title="Add to cart">
+                <i class="fas fa-shopping-bag"></i>
+              </button>
+              <button type="button" class="action-item" data-toggle="tooltip" data-original-title="Wishlist">
+                <i class="fas fa-heart"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</div>
+
+  {% include 'basic/footer.html' %}

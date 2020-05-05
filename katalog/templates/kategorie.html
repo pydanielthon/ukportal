@@ -1,0 +1,75 @@
+{% load static %}
+  {% include 'basic/header.html' %}
+<section class="slice slice-lg bg-gradient-primary">
+
+    <div class="container">
+      <div class="mb-5 text-center">
+        <h3 class="text-white mt-4">{{kategoriaa.nazwa}}</h3>
+      
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div class="table-responsive-lg">
+            <table class="table table-hover table-scale--hover table-cards align-items-center">
+              <tbody>
+                  {% for k in ogl %}
+                <tr>
+                  <th scope="row">
+                    <div class="media align-items-center">
+                      <div>
+                        <span class="avatar bg-primary text-white mr-4"><img href="{{ k.image.url }}"></img></span>
+                      </div>
+                      <div class="media-body">
+                        <a href="{% url 'katalog:firma_detail' pk=k.pk %}" class="h5 mb-0">{{ k.name }}</a>
+                      </div>
+                    </div>
+                  </th>
+                  <td>
+                    <span class="h6">{{ k.category }}</span>
+                  </td>
+                  <td><i class="fas fa-map-marker mr-3"></i><span class="h6">{{k.adres}}</span></td>
+                </tr>
+                <tr class="table-divider"></tr>
+           {% endfor %}
+
+              </tbody>
+            </table>
+          </div>
+   
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="slice slice-lg delimiter-bottom">
+    <div class="container">
+      <!-- Title -->
+      <div class="mb-5 text-center">
+        <h3 class="h6">Najlepsze polskie firmy w UK</h3>
+      </div>
+      <!-- Products -->
+      <div class="row">
+
+        {% for p in posty %}
+        <div class="col-lg-3 col-sm-6">
+          <div class="card card-product">
+            <div class="card-image">
+              <a href="#">
+                <img alt="Image placeholder" src="{{p.image.url}}" class="img-center img-fluid">
+              </a>
+            </div>
+            <div class="card-body text-center pt-0">
+              <h6><a href="#">{{p.name}}</a></h6>
+          
+            </div>
+    
+          </div>
+        </div>
+  {% endfor %}
+
+
+      </div>
+    </div>
+  </section>
+
+  {% include 'basic/footer.html' %}

@@ -1,0 +1,129 @@
+{% load static %}
+{% include 'basic/header.html' %}
+  <div class="main-content">
+    <!-- Header (account) -->
+    <header class="header-account-page bg-primary d-flex align-items-end">
+      <!-- Header container -->
+      <div class="container">
+        <div class="row">
+          <div class=" col-lg-12">
+            <!-- Salute + Small stats -->
+            <div class="row align-items-center mb-4">
+              <div class="col-md-5 mb-4 mb-md-0">
+                <span class="h2 mb-0 text-white d-block">Płatność</span>
+                <span class="text-white">Zapłać za reklamę!</span>
+              </div>
+            </div>
+            <!-- Account navigation -->
+   
+          </div>
+        </div>
+      </div>
+    </header>
+    <section class="slice">
+      <div class="container">
+        <div class="row row-grid">
+          <div class="col-lg-8">
+       
+            
+              <!-- Add money using PayPal -->
+              <div class="card">
+                <div class="card-header">
+                  <div class="row">
+                    <div class="col-8">
+                      <div class="custom-control custom-checkbox">
+                        <input type="radio" class="custom-control-input" name="radio-payment" id="radio-payment-paypal">
+                        <label class="custom-control-label h6 mb-0 lh-180" for="radio-payment-paypal">PayPal - Płatność Miesięczna</label>
+                      </div>
+                      <br>
+                      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                        <input type="hidden" name="cmd" value="_s-xclick">
+                        <input type="hidden" name="hosted_button_id" value="VQL25MXF4J2NG">
+                        <table>
+                        <tr><td><input type="hidden" name="on0" value=""></td></tr><tr><td><select name="os0">
+                          <option value="Podstawowy">Podstawowy : £5.00 GBP - monthly</option>
+                          <option value="Biznes">Biznes : £10.00 GBP - monthly</option>
+                          <option value="Dla Najlepszych">Dla Najlepszych : £20.00 GBP - monthly</option>
+                        </select> </td></tr>
+                        </table>
+                        <input type="hidden" name="currency_code" value="GBP">
+                        <input type="image" src="https://www.paypalobjects.com/en_US/PL/i/btn/btn_subscribeCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                        <img alt="" border="0" src="https://www.paypalobjects.com/en_GB/i/scr/pixel.gif" width="1" height="1">
+                        </form>
+                        
+                    </div>
+                    <div class="col-4 text-right">
+                      <img alt="Image placeholder" src="{% static 'assets/img/icons/cards/paypal-256x160.png' %}" width="70">
+                    </div>
+                  </div>
+                </div>
+              </div>
+       
+              <div class="card">
+                <div class="card-header">
+                  <div class="row">
+                    <div class="col-8">
+                      <div class="custom-control custom-checkbox">
+                        <input type="radio" class="custom-control-input" name="radio-payment" id="radio-payment-paypal">
+                        <label class="custom-control-label h6 mb-0 lh-180" for="radio-payment-paypal">PayPal - Płatność Roczna</label>
+                      </div>
+                      <br>
+                      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                        <input type="hidden" name="cmd" value="_s-xclick">
+                        <input type="hidden" name="hosted_button_id" value="AGKMZMMP9MPH4">
+                        <table>
+                        <tr><td><input type="hidden" name="on0" value="Roczny abonament"></td></tr><tr><td><select name="os0">
+                          <option value="Podstawowy">Podstawowy £50.00 GBP</option>
+                          <option value="Biznes">Biznes £100.00 GBP</option>
+                          <option value="Dla Najlepszych">Dla Najlepszych £200.00 GBP</option>
+                        </select> </td></tr>
+                        </table>
+                        <input type="hidden" name="currency_code" value="GBP">
+                        <input type="image" src="https://www.paypalobjects.com/pl_PL/PL/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal – Płać wygodnie i bezpiecznie">
+                        <img alt="" border="0" src="https://www.paypalobjects.com/en_GB/i/scr/pixel.gif" width="1" height="1">
+                        </form>
+                        
+                        
+                    </div>
+                    
+                    <div class="col-4 text-right">
+                      <img alt="Image placeholder" src="{% static 'assets/img/icons/cards/paypal-256x160.png' %}" width="70">
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+    
+             <div class="card">
+                <div class="card-header">
+                  <div class="row">
+                    <div class="col-8">
+                      <div class="custom-control custom-checkbox">
+                        <input type="radio" class="custom-control-input" name="radio-payment" id="radio-payment-paypal">
+                        <label class="custom-control-label h6 mb-0 lh-180" for="radio-payment-paypal">Płatność przelewem</label>
+                      </div>
+                      <br>
+                 Numer Konta:<br>
+                 Sort/Code:<br>
+                 <strong>W tytule przelewu proszę wpisać nazwę firmy.</strong>
+                        
+                        
+                    </div>
+
+        </div>
+      </div>
+    </section>
+  </div>
+
+    <!--PayPall Function-->
+    <script>
+      function function_pay_pal() {
+      
+      document.form_order.action='https://www.paypal.com/cgi-bin/webscr';
+      document.form_order.target='_top';
+      document.form_order.submit();
+      return true;
+      
+      }
+      </script>
+{% include 'basic/footer.html' %}

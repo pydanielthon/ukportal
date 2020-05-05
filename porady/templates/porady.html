@@ -1,0 +1,119 @@
+{% load static %}
+{% include 'basic/header.html' %}
+<div class="main-content">
+    <!-- Header (v4) -->
+    <section class="slice slice-xl bg-cover bg-size--cover" data-offset-top="#header-main" style="background-image: url({% static 'assets/img/backgrounds/porady.jpg' %}); background-position: center center;">
+      <div class="spotlight-holder pt-5 pb-7 py-lg-0">
+        <span class="mask bg-gradient-primary opacity-6"></span>
+        <div class="container d-flex align-items-center">
+          <div class="col">
+            <div class="row align-items-center justify-content-center">
+              <div class="col-md-9 col-lg-7 text-center">
+                <h1 class="text-white lh-150 mb-4">Przeczytaj lub oglądnij. Co do powiedzenia mają, najpopularniejsi Polacy w UK.</h1>
+            
+                
+         
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Blog (v2) -->
+ 
+    <!-- Blog (v3) -->
+
+    <!-- Blog (v4) -->
+    <section class="slice slice-lg bg-section-secondary">
+      <div class="container">
+        <div class="mb-5 text-center">
+          <h3 class=" mt-4">Wpisy Profesjonalistów</h3>
+          <div class="fluid-paragraph mt-3">
+            <p class="lead lh-180">Przeczytaj opowieści ludzi sukcesu, biznesu i nauki.</p>
+          </div>
+        </div>
+        <div class="row">
+          {% for p in posts %}
+          <div class="col-lg-4">
+            <div class="card hover-shadow-lg hover-translate-y-n10">
+              <a href="#">
+                <img alt="Image placeholder" src="{{p.image.url}}" class="card-img-top">
+              </a>
+              <div class="card-body py-5 text-center">
+                <a href="#" class="d-block h5 lh-150">{{p.title}}</a>
+                <h6 class="text-muted mt-4 mb-0">20 Aug 2019</h6>
+              </div>
+              <div class="card-footer delimiter-top">
+                <div class="row">
+                  <div class="col text-center">
+          
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+        </div>
+      </div>
+    </section>
+    <!-- Subscribe (v1) -->
+    <section class="slice clients delimiter-top delimiter-bottom">
+      <h3 class="text-center pb-3">Polecany firmy</h3>
+
+      <div class="container">
+        <div class="client-group row justify-content-center">
+          {% for f in firmy %}
+
+          <div class="client col-lg-2 col-md-3 col-4 py-3">
+            <img alt="Image placeholder" src="{{ f.image.url }}">
+          </div>
+          {% endfor %}
+        </div>
+      
+      </div>
+    </section>
+    <!-- Blog (v4) -->
+    <section class="slice slice-lg">
+      <div class="container">
+        <div class="mb-5 text-center">
+          <h3 class=" mt-4">Porady profesjonalistów</h3>
+          <div class="fluid-paragraph mt-3">
+            <p class="lead lh-180">Posłuchaj co dopowiedzenia mają najbardziej znani polacy w Wielkiej Brytanii.</p>
+          </div>
+        </div>
+        <div class="row">
+          {% for p in video %}
+          <div class="col-lg-6">
+            <div class="card" data-animate-hover="1">
+              <div class="animate-this">
+                <iframe width="560" height="315" src="{{ p.film }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>             
+                <span class="btn-inner--icon">
+                  </span>
+                </a>
+              </div>
+              <div class="card-body">
+                <blockquote class="blockquote">
+                  <span class="quote"></span>
+                  <div class="quote-text">
+                    <p class="font-italic lh-170">{{p.title}}.</p>
+                    <footer class="blockquote-footer">
+                      Nagrany przez <cite title="Source Title">{{p.author}}</cite>
+                    </footer>
+                  </div>
+                </blockquote>
+              </div>
+            </div>
+          </div>
+         {% endfor %}
+        </div>
+        <div class="mt-5 text-center">
+          
+   
+        </div>
+      </div>
+    </section>
+    <!-- Clients (v1) -->
+ 
+  </div>
+  {% include 'basic/footer.html' %}

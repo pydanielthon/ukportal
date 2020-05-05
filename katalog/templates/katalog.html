@@ -1,0 +1,170 @@
+{% load static %}
+{% include 'basic/header.html' %}
+<div class="main-content">
+  <section class="slice slice-xl bg-cover bg-size--cover" data-offset-top="#header-main" style="background-image: url({% static 'assets/img/backgrounds/katalog.jpg' %}); background-position: center center;">
+    <div class="spotlight-holder pt-5 pb-7 py-lg-0">
+      <span class="mask bg-gradient-primary opacity-6"></span>
+      <div class="container d-flex align-items-center">
+        <div class="col">
+          <div class="row align-items-center justify-content-center">
+            <div class="col-md-9 col-lg-7 text-center">
+              <h2 class="h1 mb-4 text-white">Katalog </h2>
+              <p class="lead lh-180 text-white">Dodaj swoją firmę za darmo, lub kup reklamę w naszym portalu, aby dotrzeć do nowych klientów.</p>
+          
+     
+              <div class="mt-5">
+                <a href="{% url 'app:kup' %}" class="btn btn-primary rounded-pill px-5 mr-lg-4 my-2">Kup reklamę</a>
+                <a href="{% url 'katalog:dodajfirme' %}" class="btn btn-light rounded-pill px-5 mr-lg-4 my-2">Dodaj firmę za darmo</a>
+
+              </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+    <!-- Header (v16) -->
+    <section class="slice slice-xl pb-6" data-offset-top="#header-main">
+      <div class="container pt-0">
+  
+        <div class="row row-grid delimiter-top">
+          <div class="col-lg-4">
+            <div class="d-flex align-items-center">
+              <img alt="Image placeholder" src="{% static 'assets/img/icons/essential/detailed/Ballance.svg' %}" class="svg-inject" style="width: 90px; height: 90px;">
+              <div class="icon-text px-4">
+                <h5 class="mb-1">Zarabiaj</h5>
+                <p class="mb-0">Reklama w naszym serwisie to inwestycja, a nie koszt.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="d-flex align-items-center">
+              <img alt="Image placeholder" src="{% static 'assets/img/icons/essential/detailed/Charts_1.svg' %}" class="svg-inject" style="width: 90px; height: 90px;">
+              <div class="icon-text px-4">
+                <h5 class="mb-1">Rośnij</h5>
+                <p class="mb-0">Wszystkie firmy w naszym portalu, notują wzrost sprzedaży.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="d-flex align-items-start">
+              <img alt="Image placeholder" src="{% static 'assets/img/icons/essential/detailed/Group.svg' %}" class="svg-inject" style="width: 90px; height: 90px;">
+              <div class="icon-text px-4">
+                <h5 class="mb-1">Poznawaj</h5>
+                <p class="mb-0">Poznaj ludzi, którzy pomogą Ci się rozwinąć.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Table (v1) -->
+    
+    <div class="list-group container">
+    
+    
+        <div class="list-group-item">
+            {% for k in kategoria %}
+    <div class="media align-items-center">
+        <div class="mr-3">
+            
+    
+        </div>
+        <div class="media-body">
+         <a href="{% url 'katalog:kategoria' pk=k.pk %}">
+            <h5 class="text-md d-block text-limit mb-2 ml-5 text-left"><u>{{k.name}}</u></h5>
+         
+        </div>
+        <div class="media-body">
+          <a href="{% url 'katalog:kategoria' pk=k.pk %}">
+             <h5 class="text-md d-block text-limit mb-2 ml-5 text-left"><u>{{k.name}}</u></h5>
+          
+         </div>
+      
+    </div>
+    {% endfor %}
+        </div>
+        
+
+ 
+        
+    </div>
+
+    <section class="slice">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8">
+            <blockquote class="blockquote blockquote-card py-5 px-5 rounded-right bg-neutral hover-scale-110">
+              <h3 class="h2 font-weight-700">Najlepszy portal dla polaków w UK!</h3>
+              <p class="lead">Ogłoszenie mojej firmy w portalu Nizbędnik Emigranta, przyczyniło się do wzrostu sprzedaży o 30% już w pierwszy miesiącu.</p>
+              <footer class="blockquote-footer">CEO w TG & DC CODE <cite class="font-weight-600" title="Source Title">Daniel Czerepak</cite>
+              </footer>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Testimonials (v6) -->
+    <section class="slice slice-lg">
+      <div class="container">
+        <div class="mb-5 text-center">
+          <h3 class=" mt-4">Najnowsze artykuły profesjonalistów</h3>
+          <div class="fluid-paragraph mt-3">
+            <p class="lead lh-180">Ludzie pragnący dzielić się swoim doświadczeniem i swoją wiedzą za darmo. Sprawdź!</p>
+          </div>
+        </div>
+        <div class="row">
+          {% for p in porady %}
+          <div class="col-lg-6">
+            <div class="card" data-animate-hover="1">
+              <div class="animate-this">
+                <img alt="Image placeholder" src="{{ p.zdjecie.url }}" class="card-img-top">
+                <a href="{{p.film}}" class="btn btn-lg btn-white btn-icon-only rounded-circle shadow-sm position-absolute right-4 top-4 hover-scale-110" data-fancybox>
+                  <span class="btn-inner--icon">
+                    <i class="fas fa-play"></i>
+                  </span>
+                </a>
+              </div>
+              <div class="card-body">
+                <blockquote class="blockquote">
+                  <span class="quote"></span>
+                  <div class="quote-text">
+                    <footer class="blockquote-footer">
+                      {{p.title}} <cite title="Source Title">{{p.author}}</cite>
+                    </footer>
+                  </div>
+                </blockquote>
+              </div>
+            </div>
+          </div>
+       {% endfor %}
+        </div>
+        <div class="mt-5 text-center">
+          <a href="{% url 'porady:porady_list' %}" class="btn btn-sm btn-primary rounded-pill btn-icon">
+            <span class="btn-inner--icon"><i class="fas fa-angle-right"></i></span>
+            <span class="btn-inner--text">Zobacz wszystkie artykuły</span>
+          </a>
+        </div>
+      </div>
+    </section>
+    <!-- Call to action (v5) -->
+    <section class="slice slice-lg bg-section-secondary" id=sct-call-to-action><a href="#sct-call-to-action" class="tongue tongue-up tongue-section-primary" data-scroll-to>
+        <i class="fas fa-angle-up"></i>
+      </a>
+      <div class="container">
+        <div class="row justify-content-center align-items-center">
+          <div class="col-lg-8 text-center">
+            <h3 class="font-weight-400">Jestem gotów aby reklamować się w  <span class="font-weight-700">Niezbędniku</span> Emigranta.</h3>
+            <div class="mt-5">
+              <a href="https://themes.getbootstrap.com/product/purpose-website-ui-kit/" class="btn btn-primary rounded-pill hover-translate-y-n3">
+                Kup reklamę
+              </a>
+              <a href="{% static 'docs/index.html" class="btn btn-link" data-toggle="tooltip" data-placement="bottom" title="Official documentation">Dodaj firmę za darmo</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+{% include 'basic/footer.html' %}

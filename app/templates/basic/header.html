@@ -1,0 +1,71 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Purpose is a unique and beautiful collection of UI elements that are all flexible and modular. A complete and customizable solution to building the website of your dreams.">
+  <meta name="author" content="Webpixels">
+  <title>Purpose Website UI Kit - Purpose is a unique and beautiful collection of UI elements that are all flexible and modular. A complete and customizable solution to building the website of your dreams.</title>
+  <!-- Favicon -->
+  <link rel="icon" href="{% static 'assets/img/brand/favicon.png' %} " type="image/png">
+  <!-- Font Awesome 5 -->
+  <link rel="stylesheet" href="{% static 'assets/libs/@fortawesome/fontawesome-free/css/all.min.css' %} "><!-- Purpose CSS -->
+  <link rel="stylesheet" href="{% static 'assets/css/purpose.css' %} " id="stylesheet">
+</head>
+
+<body>
+  <header class="header header-transparent mb-5 pb-5" id="header-main">
+    <!-- Main navbar -->
+    <nav class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-light bg-white" id="navbar-main">
+      <div class="container px-lg-0">
+        <!-- Logo -->
+        <a class="navbar-brand mr-lg-5" href="/">
+          <img alt="Image placeholder" src="{% static 'assets/img/moje/logo.png' %} " id="navbar-logo" style="height: 150px;">
+        </a>
+        <!-- Navbar collapse trigger -->
+        <button class="navbar-toggler pr-0" type="button" data-toggle="collapse" data-target="#navbar-main-collapse" aria-controls="navbar-main-collapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Navbar nav -->
+        <div class="collapse navbar-collapse" id="navbar-main-collapse">
+          <ul class="navbar-nav align-items-lg-center">
+            <!-- Home - Overview  -->
+            <li class="nav-item ">
+              <a class="nav-link text-light pr-3" href="{% url 'blog:post_list' %}">Blog</a>
+            </li>
+            <li class="nav-item ">
+           <a class="nav-link text-light pr-3" href="{% url 'katalog:katalog_list' %}">Katalog Firm</a>
+           </li>  <li class="nav-item ">
+              <a class="nav-link text-light pr-3" href="{% url 'porady:porady_list' %}">Porady profesjonalistów</a>
+            </li>  <li class="nav-item ">
+              <a class="nav-link text-light pr-3" href="{% url 'ogloszenia:glowna' %}">Ogłoszenia Polaków</a>
+            </li> 
+           
+            <li class="nav-item ">
+              {% if user.is_authenticated %}
+              <a class="nav-link text-light" href="{% url 'app:konto' %}">Konto</a>
+              {% else %}
+              <a class="nav-link text-light" href="{% url 'authentications:login' %}">Zaloguj się</a>
+{% endif %}
+            </li>
+            <li class="nav-item mr-0 ml-3">
+              <a href="{% url 'app:kup' %}" target="_blank" class="btn btn-sm btn-light btn-icon rounded-pill d-none d-lg-inline-flex" data-toggle="tooltip" data-placement="left" title="Przejdź do wyboru pakietu">
+                <span class="btn-inner--icon"><i class="fas fa-shopping-cart"></i></span>
+                <span class="btn-inner--text">Kup reklamę</span>
+              </a>
+            </li>
+          
+           
+          </ul>
+          <ul class="navbar-nav align-items-lg-center ml-lg-auto">
+           
+          
+         
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>

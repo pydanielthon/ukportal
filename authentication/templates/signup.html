@@ -1,0 +1,89 @@
+{% load static %}
+
+{% include 'basic/header2.html' %}
+  <div class="main-content">
+    <section class="slice slice-lg min-vh-100 d-flex align-items-center bg-section-secondary ">
+      <!-- SVG background -->
+      <div class="bg-absolute-cover bg-size--contain d-none d-lg-block ">
+        <figure class="w-100">
+          <img alt="Image placeholder" src="{% static 'assets/img/svg/backgrounds/bg-3.svg' %}" class="svg-inject">
+        </figure>
+      </div>
+      <div class="container py-5 px-md-0 d-flex align-items-center">
+        <div class="w-100">
+          <div class="row row-grid justify-content-center justify-content-lg-between align-items-center">
+            <div class="col-sm-8 col-lg-6 col-xl-5 order-lg-2">
+              <div class="card shadow zindex-100 mb-0">
+                <div class="card-body px-md-5 py-5">
+                  <div class="mb-5">
+                    <h6 class="h3">Załóż Konto</h6>
+                    <p class="text-muted mb-0">Portal stworzony przez ludzi dla ludzi.</p>
+                  </div>
+                  <span class="clearfix"></span>
+                  <form role="form" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                      <label class="form-control-label">Email</label>
+                      <div class="input-group input-group-merge">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                        {{ form.email }}
+                      </div>
+                    </div>
+                    <div class="form-group mb-4">
+                      <label class="form-control-label">Hasło</label>
+                      <div class="input-group input-group-merge">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fas fa-key"></i></span>
+                        </div>
+                        {{ form.password1 }}
+                        <div class="input-group-append">
+                          <span class="input-group-text">
+                            <i class="fas fa-eye"></i>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="form-control-label">Potwierdź hasło</label>
+                      <div class="input-group input-group-merge">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fas fa-key"></i></span>
+                        </div>
+                        {{ form.password2 }}
+                      </div>
+                    </div>
+                    <div class="my-4">
+                      <div class="custom-control custom-checkbox mb-3">
+                        <input type="checkbox" class="custom-control-input" id="check-terms">
+                        <label class="custom-control-label" for="check-terms">Akceptuje warunki <a href="#">regulaminu</a></label>
+                      </div>
+                      <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="check-privacy">
+                        <label class="custom-control-label" for="check-privacy">Akceptuję warunki <a href="#">polityki prywatności</a></label>
+                      </div>
+                    </div>
+                    <div class="mt-4">
+                      <button type="submit" class="btn btn-sm btn-primary btn-icon rounded-pill">
+                        <span class="btn-inner--text">Utwórz Konto</span>
+                        <span class="btn-inner--icon"><i class="fas fa-long-arrow-alt-right"></i></span>
+                      </button></div>
+                  </form>
+                </div>
+                <div class="card-footer px-md-5"><small>Masz już konto?</small>
+                  <a href="{% url 'authentications:login' %}" class="small font-weight-bold">Zaloguj się</a></div>
+              </div>
+            </div>
+            <div class="col-lg-6 order-lg-1 d-none d-lg-block">
+              <blockquote>
+                <h3 class="h2 mb-4">Keep your face always toward the sunshine - and shadows will fall behind you.</h3>
+                <footer>— <cite class="text-lg">John Sulivan</cite></footer>
+              </blockquote>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  {% include 'basic/footer.html' %}

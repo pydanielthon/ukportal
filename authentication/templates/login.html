@@ -1,0 +1,77 @@
+{% load static %}
+
+{% include 'basic/header2.html' %}
+
+  <div class="main-content">
+    <section class="slice slice-lg min-vh-100 d-flex align-items-center bg-section-secondary">
+      <!-- SVG background -->
+      <div class="bg-absolute-cover bg-size--contain d-none d-lg-block">
+        <figure class="w-100">
+          <img alt="Image placeholder" src="{% static 'assets/img/svg/backgrounds/bg-3.svg' %}" class="svg-inject">
+        </figure>
+      </div>
+      <div class="container py-5 px-md-0 d-flex align-items-center">
+        <div class="w-100">
+          <div class="row row-grid justify-content-center justify-content-lg-between align-items-center">
+            <div class="col-sm-8 col-lg-6 col-xl-5 order-lg-2">
+              <div class="card shadow zindex-100 mb-0">
+                <div class="card-body px-md-5 py-5">
+                  <div class="mb-5">
+                    <h6 class="h3">Zaloguj się</h6>
+                  </div>
+                  <span class="clearfix"></span>
+                  <form role="form" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                      <div class="input-group input-group-merge">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                        {{ form.login }}
+
+                      </div>
+                    </div>
+                    <div class="form-group mb-4">
+                      <div class="d-flex align-items-center justify-content-between">
+                        <div>
+                          
+                        </div>
+                        <div class="mb-2">
+                          <a href="#!" class="small text-muted text-underline--dashed border-primary">Zapomniałeś hasła?</a>
+                        </div>
+                      </div>
+                      <div class="input-group input-group-merge">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fas fa-key"></i></span>
+                        </div>
+                        {{ form.password }}
+                        <div class="input-group-append">
+                          <span class="input-group-text">
+                            <i class="fas fa-eye"></i>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="mt-4">
+                      <button type="submit" class="btn btn-sm btn-primary btn-icon rounded-pill">
+                        <span class="btn-inner--text">Zaloguj</span>
+                        <span class="btn-inner--icon"><i class="fas fa-long-arrow-alt-right"></i></span>
+                      </button></div>
+                  </form>
+                </div>
+                <div class="card-footer px-md-5"><small>Nie masz konta?</small>
+                  <a href="{% url 'authentications:signup' %}" class="small font-weight-bold">Załóz nowe konto</a></div>
+              </div>
+            </div>
+            <div class="col-lg-5 order-lg-1 d-none d-lg-block">
+              <blockquote>
+                <h3 class="h2 mb-4">Zaloguj się do portalu, aby dodawać komentarze i ogłoszenia. </h3>
+              </blockquote>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Core JS - includes jquery, bootstrap, popper, in-view and sticky-kit -->
+{% include 'basic/footer.html' %}

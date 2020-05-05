@@ -1,0 +1,46 @@
+{% load static %}
+{% include 'basic/header.html' %}
+<div class="main-content">
+    <!-- Header (account) -->
+    <header class="header-account-page bg-primary d-flex align-items-end">
+      <!-- Header container -->
+      <div class="container">
+        <div class="row">
+          <div class=" col-lg-12">
+            <!-- Salute + Small stats -->
+       
+ 
+          </div>
+        </div>
+      </div>
+    </header>
+    <section class="slice">
+      <div class="container">
+        <div class="row row-grid">
+          <div class="col-lg-12">
+            <form method="POST">{% csrf_token %}
+        
+              <div class="mt-5">
+                <!-- Title -->
+                <div class="actions-toolbar py-2 mb-4">
+                  <h5 class="mb-1">Dodaj swoją firmę</h5>
+                  <p class="text-sm text-muted mb-0">Wybrałeś darmową opcję promocji swojej firmy w naszym portalu.</p>
+                </div>
+                {{form.as_p}}
+                <!-- New address form -->
+          
+        
+              </div>
+            
+              <div class="mt-4 text-center">
+                <a href="/" class="btn btn-link text-sm text-dark font-weight-bold">Wróc do strony</a>
+                <button type="submit" class="btn btn-sm btn-primary">Dodaj firmę</button>
+              </div>
+            </form>
+          </div>
+       
+        </div>
+      </div>
+    </section>
+  </div>
+{% include 'basic/footer.html' %}

@@ -1,0 +1,59 @@
+{% load static %}
+{% include 'basic/header.html' %}
+<div class="main-conten ">
+  <section class="slice slice-xl bg-cover bg-size--cover" data-offset-top="#header-main" style="background-image: url({% static 'assets/img/backgrounds/blog.jpg' %}); background-position: center center;">
+    <div class="spotlight-holder pt-5 pb-7 py-lg-0">
+      <span class="mask bg-gradient-primary opacity-6"></span>
+      <div class="container d-flex align-items-center">
+        <div class="col">
+          <div class="row align-items-center justify-content-center">
+            <div class="col-md-9 col-lg-7 text-center">
+              <h1 class="text-white lh-150 mb-4">Najciekawsze artykuły dotyczące życia w UK.</h1>
+          
+              
+       
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+    <section class="slice slice-lg bg-neutral">
+
+      <div class="container">
+    
+        <div class="row">
+          {% for p in posts %}
+          <div class="col-lg-4">
+           
+            <div class="card hover-shadow-lg hover-translate-y-n10">
+              <a href="{% url 'blog:post_detail' pk=p.pk %}">
+                <img alt="Image placeholder" src="{{ p.img.url }}" class="card-img-top">
+              </a>
+              <div class="card-body py-5 text-center">
+                <a href="{% url 'blog:post_detail' pk=p.pk %}" class="d-block h5 lh-150">{{p.title}}</a>
+                <h6 class="text-muted mt-4 mb-0">{{p.created_date}}</h6>
+              </div>
+              <div class="card-footer delimiter-top">
+                <div class="row">
+                  <div class="col text-center">
+                  
+                  </div>
+                </div>
+              </div>
+           
+            </div>
+  
+          </div>
+   
+          {% endfor %}
+     
+        </div>
+        <!-- Load more -->
+        <div class="mt-4 text-center">
+        </div>
+      </div>
+    </section>
+  </div>
+{% include 'basic/footer.html' %}
