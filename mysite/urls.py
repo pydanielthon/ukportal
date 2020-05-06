@@ -27,5 +27,7 @@ urlpatterns = [
     path('katalog/', include('katalog.urls', namespace='katalog')),
     path('porady/', include('porady.urls', namespace="porady")),
     path('ogloszenia/', include('ogloszenia.urls', namespace='ogloszenia')),
+    path('randki/', include('randki.urls', namespace='randki')),
+
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

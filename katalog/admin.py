@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, katalog, darmowy, podstawowy
+from .models import Category, katalog
 
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ['name', 'slug']
@@ -13,5 +13,3 @@ class katalogAdmin(admin.ModelAdmin):
     list_editable = ['price', 'stock', 'available']
     prepopulated_fields = {'slug': ('name',)}
     admin.site.register(katalog)
-    admin.site.register(darmowy)
-    admin.site.register(podstawowy)

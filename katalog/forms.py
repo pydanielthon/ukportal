@@ -1,41 +1,48 @@
-from .models import darmowy
+from .models import katalog
 from django import forms
 
 
 class DodajFirme(forms.ModelForm):
     class Meta:
-        model = darmowy
-        fields = ['kategoria', 'nazwa', 'email', 'miasto', 'numer', 'logo']
+        model = katalog
+        fields = ['category', 'name', 'mail', 'adres', 'telefon', 'image']
         widgets = {
-            'nazwa': forms.TextInput(
+            'name': forms.TextInput(
                 attrs={
                     'class': 'form-control'
                 }
             ),
-            'miasto': forms.TextInput(
+            'adres': forms.TextInput(
                 attrs={
                     'class': 'form-control'
                 }
             ),
-             'email': forms.EmailInput(
+             'mail': forms.EmailInput(
                 attrs={
                     'class': 'form-control'
                 }
             ),
-              'kategoria': forms.Select(
+              'category': forms.Select(
                 attrs={
                     'class': 'form-control'
                 }
             ),
-          'numer': forms.NumberInput(
+          'telefon': forms.NumberInput(
                 attrs={
                     'class': 'form-control'
                 }
             ),
-              'logo': forms.FileInput(
+              'image': forms.FileInput(
                 attrs={
                     'class': 'form-control'
                 }
             ),
         }
-        
+        labels = {
+            'name': 'Nazwa Firmy',
+            'category': 'Kategoria',
+            'mail': 'Email Firmowy',
+            'adres': 'Adres Firmy',
+            'telefon': 'Numer Telefonu',
+            'image': 'Logo Firmy'
+        }

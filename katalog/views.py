@@ -36,12 +36,12 @@ def kategoria(request, pk):
     kategoriaa = get_object_or_404(Category, pk=pk)
     ogl = kategoriaa.katalog.all()
     posty = katalog.objects.all()
-    posty2 = len(posty)
+
 
     context =  {'kategoriaa': kategoriaa,
                 'ogl': ogl,
                 'posty': posty,
-                'posty2': posty2,
+
 
 }
     return render(request, 'kategorie.html', context)

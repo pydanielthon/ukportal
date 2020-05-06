@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'blog',
     'porady',
     'ogloszenia',
-
+    'randki',
+    
     'imagekit',
     'django.contrib.sites',
     'allauth',

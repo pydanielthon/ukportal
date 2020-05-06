@@ -1,39 +1,84 @@
 {% load static %}
-{% include 'basic/header.html' %}
+{% include 'basic/header2.html' %}
+<style>header {
+  position: relative;
+  background-color: black;
+  height: 75vh;
+  min-height: 25rem;
+  width: 100%;
+  overflow: hidden;
+}
 
-<div class="main-content">
-    <!-- Header (v6) -->
-    <section class="slice slice-xl pb-250 bg-primary">
-      <div class="d-flex align-items-center">
-        <div class="container py-6 py-xl-9">
-          <div class="row row-grid align-items-center justify-content-center">
-            <div class="col-lg-6">
-              <div class="py-lg-5 text-center">
-                <h2 class="h1 text-white mb-3">Niezbędnik Emigranta</h2>
-                <p class="lead lh-180 text-white">Znajdziesz tutaj wszystko, czego potrzebujesz odnośnie życia w Wielkiej Brytanii..</p>
-                {% if user.is_authenticated %}
-                {% else %}
-                <a href="{% url 'authentication:signup' %}" class="btn btn-white btn-icon rounded-pill hover-translate-y-n3 mt-5">
+header video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 0;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+header .container {
+  position: relative;
+  z-index: 2;
+}
+
+header .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0.5;
+  z-index: 1;
+}
+
+@media (pointer: coarse) and (hover: none) {
+  header {
+    background: url('https://source.unsplash.com/XT5OInaElMw/1600x900') black no-repeat center center scroll;
+  }
+  header video {
+    display: none;
+  }
+}</style>
+<header>
+  <div class="overlay"></div>
+  <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+    <source src="{% static 'assets/img/film.mp4' %}" type="video/mp4">
+  </video>
+  <div class="container h-100">
+    <div class="d-flex h-100 text-center align-items-center">
+      <div class="w-100 text-white">
+        <div class="py-lg-5 text-center">
+                
+          <h2 class="h1 text-primary mb-3">Niezbędnik Emigranta</h2>
+          
+          {% if user.is_authenticated %}
+          {% else %}
+          <a href="{% url 'authentication:signup' %}" class="btn btn-white btn-icon rounded-pill hover-translate-y-n3 mt-5">
+      
+            <span class="btn-inner--icon">
+              <i class="fas fa-user-plus"></i>
+            </span>
             
-                  <span class="btn-inner--icon">
-                    <i class="fas fa-user-plus"></i>
-                  </span>
-                  
-                  <span class="btn-inner--text">Utwórz konto</span>
-                  {% endif %}
-                </a>
-              </div>
-            </div>
-          </div>
+            <span class="btn-inner--text">Utwórz konto</span>
+            {% endif %}
+          </a>
         </div>
       </div>
-      <div class="shape-container" data-shape-position="bottom">
-        <svg preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1437.24 372.58" class="ie-shape-clouds">
-          <path class="fill-section-primary" d="M1.35,97.76.5-189l16,8.88s28.43-111.93,145.68-53.3c0,0,42.13-28.11,63.71,9.81,0,0,30.73-57.54,90.88-11.11,0,0,136-132.07,196.8,86.3,0,0,86.3-171.3,234.72,5.23,0,0,39.23-102.65,143.19-22.23,0,0,5.88-113.11,149.07-61.46,0,0,68.65-100,189-11.11,0,0,126.84-28.11,151.69,87,0,0,34.65-34.65,56.23-18.31l.33,267.1Z" transform="translate(-0.5 400)" />
-          <path class="fill-section-primary opacity-5" d="M.56-113.82,1.35,97.76H1437.74l-.55-207.55s-62.35-102.82-192-23.19c0,0-50.05-64.84-110.35-5.69,0,0-22.75-37.54-52.33-13.65,0,0-18.2-75.08-87.59-30.71,0,0-29.58-18.2-36.4,8,0,0-101.25-122.86-167.23,18.2,0,0-78.49-60.29-137.65,12.51,0,0-35.27-26.16-52.33-1.14,0,0-2.28-27.3-36.4-11.38,0,0-31.85-52.33-91-21.61,0,0-48.92-64.84-111.48-6.83,0,0-62.88-21.69-72.81,29.58,0,0-44.91-23.4-43.23,19.34,0,0-39.82-51.19-81.91,4.55,0,0-54.6-44.37-94.42,9.1C70-122.74,17.56-154.95.56-113.82Z" transform="translate(-0.5 274.83)" />
-        </svg>
-      </div>
-    </section>
+    </div>
+  </div>
+</header>
+<div class="main-content">
+    <!-- Header (v6) -->
+    
+  
     <!-- Subscribe (v2) -->
 
     <!-- Clients (v1) -->
@@ -42,7 +87,7 @@
         <div class="client-group row justify-content-center">
           {% for f in firmy %}
           <div class="client col-lg-2 col-md-5 col-4 py-5">
-            <img  alt="{{ f.name }}" src="{{f.image.url}}">
+            <img  alt="{{ f.name }}" src="">
           </div>
 {% endfor %}
         </div>

@@ -1,0 +1,83 @@
+{% load static %}
+{% include 'basic/header.html' %}
+
+<div class="main-content">
+    <!-- Header -->
+    <section class="slice slice-xl bg-cover bg-size--cover" data-offset-top="#header-main" style="background-image: url({% static 'assets/img/backgrounds/randki.jpg' %}); background-position: center center;">
+      <span class="mask bg-primary opacity-4"></span>
+      <div class="container py-6">
+        <div class="row justify-content-center">
+          <div class="col-lg-6 text-center">
+            <h2 class="h1 text-white">Portal Randkowy</h2>
+        
+            <p class="lead text-white mt-4">Poznaj miłość swojego życia.</p>
+            {% if request.user.is_authenticated %}
+            <a href="{% url 'randki:dodaj' %}" class="btn btn-white rounded-pill mt-4 shadow hover-shadow-lg hover-translate-y-n3">Dodaj Ogłoszenie</a>
+
+{% else %}
+            <a href="{% url 'authentications:login' %}" class="btn btn-white rounded-pill mt-4 shadow hover-shadow-lg hover-translate-y-n3">Zaloguj lub Zarejestruj się</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Products -->
+    <section class="slice slice-lg delimiter-bottom" id="sct-products">
+      <div class="container">
+        <div class="row">
+          {% for x in kategorie %}
+          <div class="col-xl-3 col-lg-4 col-sm-6">
+            <div class="card card-product">
+              <div class="card-image">
+             
+              </div>
+              <div class="card-body text-center pt-0">
+                <h6><a href="{% url 'randki:kategoria' pk=x.pk %}">{{x.nazwa}}</a></h6>
+                <p class="text-sm">
+                  
+                </p>
+                
+             
+              </div>
+        
+            </div>
+          </div>
+{% endfor %}
+        </div>
+        <!-- Load more -->
+  
+      </div>
+    </section>
+    
+  
+    <section class="slice slice-lg delimiter-bottom">
+      <div class="container">
+        <!-- Title -->
+        <div class="mb-5 text-center">
+          <h3 class="h6">Najlepsze polskie firmy w UK</h3>
+        </div>
+        <!-- Products -->
+        <div class="row">
+          {% for p in posty %}
+          <div class="col-lg-3 col-sm-6">
+            <div class="card card-product">
+              <div class="card-image">
+                <a href="#">
+                  <img alt="Image placeholder" src="" class="img-center img-fluid">
+                </a>
+              </div>
+              <div class="card-body text-center pt-0">
+                <h6><a href="#">{{p.name}}</a></h6>
+            
+              </div>
+      
+            </div>
+          </div>
+    {% endfor %}
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  {% include 'basic/footer.html' %}
