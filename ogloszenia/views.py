@@ -4,6 +4,7 @@ from django.shortcuts import get_object_or_404
 from .models import OgloszeniaKategoria, OgloszenieDetail, Dodaj
 from katalog.models import katalog
 from .forms import CommentForm, DodajForm
+from blog.models import Post
 
 def glowna(request):
     kategorie = OgloszeniaKategoria.objects.all()
@@ -17,13 +18,15 @@ def glowna(request):
 def kategoria(request, pk):
     kategoriaa = get_object_or_404(OgloszeniaKategoria, pk=pk)
     ogl = kategoriaa.ogloszenie.all()
-
+    posty = katalog.objects.all()[:4]
     context =  {'kategoriaa': kategoriaa,
-                'ogl': ogl}
+                'ogl': ogl,
+                'posty': posty}
     return render(request, 'kategoria.html', context)
 
 def detail(request, pk):
     ogloszenie = get_object_or_404(OgloszenieDetail, pk=pk)
+    wpisy = Post.objects.all()[:3]
     comments = ogloszenie.comments.filter(active=True)
     new_comment = None
 
@@ -44,7 +47,8 @@ def detail(request, pk):
                                            'comments': comments,
                                            'new_comment': new_comment,
                                            'comment_form': comment_form,
-                                           'ogloszenie': ogloszenie}
+                                           'ogloszenie': ogloszenie,
+                                           'wpisy': wpisy}
  
     return render(request, 'detail.html', context)
 def dodaj(request):

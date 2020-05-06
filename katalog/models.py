@@ -25,7 +25,7 @@ class katalog(models.Model):
 
     name = models.CharField(max_length=200, db_index=True)
     image = models.ImageField(upload_to='katalog/%Y/%m/%d',
-                                blank=True)
+                                blank=True, null=True)
     adres = models.CharField(max_length=300, null=True)
     telefon = models.FloatField(blank=True, null=True)
     mail = models.EmailField(blank=True, null=True)
@@ -35,6 +35,7 @@ class katalog(models.Model):
     maps = models.CharField(max_length=250, blank=True, null=True)
 
     description = models.TextField(blank=True)
+    premium = models.BooleanField(default=False)
 
 
     def __str__(self):

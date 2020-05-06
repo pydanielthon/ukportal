@@ -63,99 +63,30 @@
       </div>
     </section>
     <!-- Blog (v4) -->
-    <section class="slice slice-lg bg-section-secondary delimiter-top delimiter-bottom">
+    <section class="slice-xl delimiter-top">
       <div class="container">
         <div class="mb-5 text-center">
-          <h3 class=" mt-4">Latest from the blog</h3>
-          <div class="fluid-paragraph mt-3">
-            <p class="lead lh-180">Start building fast, beautiful and modern looking websites in no time using our theme.</p>
-          </div>
+          <h3 class=" mt-4">Ostatnie wpisy na blogu</h3>
         </div>
         <div class="row">
+          {% for p in wpisy %}
+
           <div class="col-lg-4">
-            <div class="card hover-shadow-lg hover-translate-y-n10">
-              <a href="#">
-                <img alt="Image placeholder" src="../../assets/img/theme/light/img-1-800x600.jpg" class="card-img-top">
-              </a>
-              <div class="card-body py-5 text-center">
-                <a href="#" class="d-block h5 lh-150">Choose the best solution for your business</a>
-                <h6 class="text-muted mt-4 mb-0">20 Aug 2019</h6>
+            <div class="mb-5 mb-lg-0" data-animate-hover="1">
+              <div class="animate-this">
+                <a href="#">
+                  <img alt="Image placeholder" class="img-fluid rounded shadow" style="height: 188.05px;" src="{{p.imgglowne.url}}">
+                </a>
               </div>
-              <div class="card-footer delimiter-top">
-                <div class="row">
-                  <div class="col text-center">
-                    <ul class="list-inline mb-0">
-                      <li class="list-inline-item pr-4">
-                        <a href="#" class="text-muted"><i class="fas fa-share mr-1 text-muted"></i> 131</a>
-                      </li>
-                      <li class="list-inline-item pr-4">
-                        <a href="#" class="text-muted"><i class="fas fa-eye mr-1 text-muted"></i> 255</a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a href="#" class="text-muted"><i class="fas fa-comments mr-1 text-muted"></i> 14</a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
+              <div class="pt-4">
+                <small class="text-uppercase">{{p.created_date}}</small>
+                <h5>{{p.title1}}</h5>
+                <p class="mt-3">{{p.text1|slice:":93" }}...</p>
               </div>
             </div>
           </div>
-          <div class="col-lg-4">
-            <div class="card hover-shadow-lg hover-translate-y-n10">
-              <a href="#">
-                <img alt="Image placeholder" src="../../assets/img/theme/light/img-2-800x600.jpg" class="card-img-top">
-              </a>
-              <div class="card-body py-5 text-center">
-                <a href="#" class="d-block h5 lh-150">How to find the right design for your specific product</a>
-                <h6 class="text-muted mt-4 mb-0">23 Aug 2019</h6>
-              </div>
-              <div class="card-footer delimiter-top">
-                <div class="row">
-                  <div class="col text-center">
-                    <ul class="list-inline mb-0">
-                      <li class="list-inline-item pr-4">
-                        <a href="#" class="text-muted"><i class="fas fa-share mr-1 text-muted"></i> 131</a>
-                      </li>
-                      <li class="list-inline-item pr-4">
-                        <a href="#" class="text-muted"><i class="fas fa-eye mr-1 text-muted"></i> 255</a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a href="#" class="text-muted"><i class="fas fa-comments mr-1 text-muted"></i> 14</a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="card hover-shadow-lg hover-translate-y-n10">
-              <a href="#">
-                <img alt="Image placeholder" src="../../assets/img/theme/light/img-3-800x600.jpg" class="card-img-top">
-              </a>
-              <div class="card-body py-5 text-center">
-                <a href="#" class="d-block h5 lh-150">How to win buyers and influence sales with marketing</a>
-                <h6 class="text-muted mt-4 mb-0">27 Aug 2019</h6>
-              </div>
-              <div class="card-footer delimiter-top">
-                <div class="row">
-                  <div class="col text-center">
-                    <ul class="list-inline mb-0">
-                      <li class="list-inline-item pr-4">
-                        <a href="#" class="text-muted"><i class="fas fa-share mr-1 text-muted"></i> 131</a>
-                      </li>
-                      <li class="list-inline-item pr-4">
-                        <a href="#" class="text-muted"><i class="fas fa-eye mr-1 text-muted"></i> 255</a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a href="#" class="text-muted"><i class="fas fa-comments mr-1 text-muted"></i> 14</a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          {% endfor %}
+
         </div>
       </div>
     </section>

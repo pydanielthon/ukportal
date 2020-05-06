@@ -8,18 +8,24 @@ def katalog_list(request):
     katalogs = katalog.objects.order_by('category')
     kategoria = Category.objects.all()
     porady = PoradyVideo.objects.all()[:2]
-
+    firmy = katalog.objects.all()
     context = {
         'katalogs': katalogs,
         'kategoria': kategoria,
-
+        'firmy': firmy,
         'porady': porady,
     }
     return render(request, 'katalog.html', context)
 
 def firma_detail(request, pk):
     katalogg = get_object_or_404(katalog, pk=pk)
-    return render(request, 'firma.html', {'katalogg': katalogg})
+    posty = katalog.objects.all()[:4]
+
+    context = {
+        'katalogg': katalogg,
+        'posty': posty        
+                }
+    return render(request, 'firma.html', context)
 
 def dodajfirme(request):
     form = DodajFirme(request.POST)   
@@ -35,7 +41,7 @@ def dodajfirme(request):
 def kategoria(request, pk):
     kategoriaa = get_object_or_404(Category, pk=pk)
     ogl = kategoriaa.katalog.all()
-    posty = katalog.objects.all()
+    posty = katalog.objects.all()[:4]
 
 
     context =  {'kategoriaa': kategoriaa,

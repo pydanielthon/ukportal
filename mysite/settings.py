@@ -172,7 +172,7 @@ STATICFILES_DIRS = ( os.path.join('static'), )
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-CSRF_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = False
 
 ACCOUNT_LOGOUT_REDIRECT_URL = 'app:home'
 

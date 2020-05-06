@@ -83,11 +83,16 @@ header .overlay {
 
     <!-- Clients (v1) -->
     <section class="slice clients">
+      <h3 class=" mt-4 text-center">Najlepsze Polskie Firmy</h3>
       <div class="container">
+        
         <div class="client-group row justify-content-center">
+          
           {% for f in firmy %}
           <div class="client col-lg-2 col-md-5 col-4 py-5">
-            <img  alt="{{ f.name }}" src="">
+            <a href="{% url 'katalog:firma_detail' pk=f.pk %}">
+            <img  alt="{{ f.name }}" src="{{ f.image.url }}">
+          </a>
           </div>
 {% endfor %}
         </div>
@@ -100,7 +105,7 @@ header .overlay {
         <div class="mb-5 text-center">
           <h3 class=" mt-4">Porady profesjonalistów</h3>
           <div class="fluid-paragraph mt-3">
-            <p class="lead lh-180">Posłuchaj lub przeczytaj, co dopowiedzenia mają najbardziej znani polacy w Wielkiej Brytanii.</p>
+            <p class="lead lh-180">Posłuchaj co do powiedzenia mają najbardziej znani polacy w Wielkiej Brytanii.</p>
           </div>
         </div>
         <div class="row">
@@ -108,7 +113,7 @@ header .overlay {
           <div class="col-lg-6">
             <div class="card" data-animate-hover="1">
               <div class="animate-this">
-                <iframe width="560" height="315" src="{{ p.film }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>             
+                <iframe width="538" height="300" src="{{ p.film }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>             
                 <span class="btn-inner--icon">
                   </span>
                 </a>
@@ -229,13 +234,14 @@ header .overlay {
             <div class="mb-5 mb-lg-0" data-animate-hover="1">
               <div class="animate-this">
                 <a href="#">
-                  <img alt="Image placeholder" class="img-fluid rounded shadow" style="height: 188.05px;" src="{{p.img.url}}">
+                  <img alt="Image placeholder" class="img-fluid rounded shadow" style="height: 188.05px;" src="{{p.imgglowne.url}}">
                 </a>
               </div>
               <div class="pt-4">
+
                 <small class="text-uppercase">{{p.created_date}}</small>
-                <h5>{{p.title}}</h5>
-                <p class="mt-3">{{p.text|slice:":93" }}...</p>
+                <h5>{{p.title1}}</h5>
+                <p class="mt-3">{{p.text1|slice:":93" }}...</p>
               </div>
             </div>
           </div>

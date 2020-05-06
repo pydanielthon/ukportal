@@ -1,45 +1,89 @@
 {% load static %}
 {% load crispy_forms_tags %}
-{% include 'basic/header.html' %}
-<div class="main-content">
-    <!-- Cover (v3) -->
-    <section class="spotlight bg-cover bg-size--cover" data-offset-top="#header-main" style="background-image: url('{% static "assets/img/backgrounds/img-1-1920x800.jpg" %}');">
-      <div class="spotlight-holder">
-        <span class="mask bg-gradient-primary opacity-6"></span>
-        <div class="container d-flex align-items-center pt-9 pb-6 py-lg-0">
-          <div class="col py-4">
-            <div class="row align-items-center justify-content-center">
-              <div class="col-md-7 col-lg-7 text-center">
-                <h1 class="text-white lh-150 mb-4">{{post.title}}</h1>
-                <ul class="list-inline">
-                  <li class="list-inline-item text-white">{{post.created_date}}</li>
-                  <li class="list-inline-item text-white">Autor Destiny Erykah</li>
-                </ul>
-                <span class="clearfix"></span>
-                <a href="#blogi" class="btn btn-white rounded-pill btn-icon mt-4">
-                  <span class="btn-inner--text">Czytaj</span>
-                  <span class="btn-inner--icon"><i class="fas fa-angle-right"></i></span>
-                </a>
+{% include 'basic/header2.html' %}
+
+
+
+
+
+  <div class="main-content">
+    <section class="slice slice-lg" data-offset-top="#header-main">
+      <div class="container pt-6">
+        <div class="row justify-content-center">
+          <div class="col-md-9">
+            <h1 class="lh-150 mb-3">{{post.title1}}</h1>
+            <div class="media align-items-center mt-5">
+              <div>
+              
+              </div>
+              <div class="media-body">
+                <span class="d-block h6 mb-0 ">{{post.autor}}</span>
+                <span class="text-sm text-center">{{post.created_date}}</span>
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
+    <section class="bg-cover bg-size--cover" style="height: 600px; width:100%; background-image: url('{{ post.imgglowne.url }}'); background-position: center center;"></section>
     <section class="slice">
-      <div class="container" id="blogi">
+      <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-9">
             <!-- Article body -->
             <article>
-              <h1 class="text-primary lh-150 mb-5 text-center">{{post.title}}</h1>
+              <p class="lead">{{ post.text1 }}</p>
+              {% if post.title2 %}
+              <h5>{{post.title2}}</h5>
+              {% else %}
+              <p style="margin-bottom: -300px;"></p>
+              {% endif %}
+              <figure class="figure">
+                
 
-              <p class="lead">
-                  {{post.text}}
-              </p> 
+{% if post.img2 %}
+                <img alt="Image placeholder" src="{{post.img2.url}}" class="img-fluid rounded">
+                {% else %}
+                <p></p>
+                {% endif %}
+               {% if post.text2 %}
+              <p class="lead">{{post.text2}}</h5>
+                {% else %}
+                <p></p>
+                {% endif %}
+              <figure class="figure">
+                {% if post.img3 %}
+                <img alt="Image placeholder" src="{{post.img3.url}}" class="img-fluid rounded">
+                {% else %}
+                <p></p>
+                {% endif %}
+                {% if post.title3 %}
+              <h5>{{post.title3}}</h5>
+              {% else %}
+              <p></p>
+              {% endif %}
+              </figure>
+              {% if post.text3 %}
+              <p class="lead">{{post.text3}}</p>
+              {% else %}
+              <p></p>
+              {% endif %}
+              <figure class="figure">
+            {% if post.title4 %}
+              <h5>{{post.title4}}</h5>
+              {% else %}
+                <p></p>
+                {% endif %}
+            </figure>
+            {% if post.text4 %}
+              <p class="lead">{{post.text4}}</p>
+              {% else %}
+             
+              {% endif %}
             </article>
             <hr>
             <h5 class="mb-4">Komentarze</h5>
+
             <div class="mb-3">
               {% for comment in comments %}
 
@@ -49,10 +93,9 @@
                     <h6 class="mt-0">  {{ comment.name }}</h6>
                     <p class="text-sm lh-160">   {{ comment.body | linebreaks }}</p>
                     <div class="icon-actions">
-                      <a href="#" class="love active">
-                        <i class="fas fa-heart"></i>
+                      
                         <span class="text-muted">  {{ comment.created_on }}</span>
-                      </a>
+                   
                      
                     </div>
                   </div>
@@ -61,20 +104,69 @@
               {% endfor %}
 
             
-              {% if request.user.is_authenticated %}
+       
+            </div>
+            {% if request.user.is_authenticated %}
 
              
-              <form method="post" style="margin-top: 1.3em;">
-                        {{ comment_form | crispy }}
-                        {% csrf_token %}
-                        <button type="submit" class="btn btn-primary btn-center  btn-md">Dodaj komentarz</button>
-               </form>
-               {% else %}
-               Zaloguj się lub zarejestruj aby dodawać komentarze
-               {% endif %}
+            <form method="post" style="margin-top: 1.3em;">
+                      {{ comment_form | crispy }}
+                      {% csrf_token %}
+                      <button type="submit" class="btn btn-primary btn-center  btn-md">Dodaj komentarz</button>
+             </form>
+             {% else %}
+             Zaloguj się lub zarejestruj aby dodawać komentarze
+             {% endif %}
 
+           
+     
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+    <!-- Blog (v4) -->
+    <section class="slice slice-lg bg-section-secondary delimiter-top delimiter-bottom">
+      <div class="container">
+        <div class="mb-5 text-center">
+          <h3 class=" mt-4">Najnowsze artykuły na blogu</h3>
+          <div class="fluid-paragraph mt-3">
+            <p class="lead lh-180"></p>
+          </div>
+        </div>
+        <div class="row">
+          {% for p in posty %}
+          <div class="col-lg-4">
+            <div class="card hover-shadow-lg hover-translate-y-n10">
+              <a href="#">
+                <img alt="Image placeholder" src="{{ p.imgglowne.url }}" class="card-img-top">
+              </a>
+              <div class="card-body py-5 text-center">
+                <a href="#" class="d-block h5 lh-150">{{ p.title1 }}</a>
+                <h6 class="text-muted mt-4 mb-0">{{p.created_date}}</h6>
+              </div>
+              
+             
+            </div>
+          </div>
+      {% endfor %}
+        </div>
+      </div>
+    </section>
+    <!-- Subscribe -->
+    <section class="slice clients">
+      <h3 class=" mt-4 text-center">Najlepsze Polskie Firmy</h3>
+      <div class="container">
+        
+        <div class="client-group row justify-content-center">
+          
+          {% for f in firmy %}
+          <div class="client col-lg-2 col-md-5 col-4 py-5">
+            <a href="{% url 'katalog:firma_detail' pk=f.pk %}">
+            <img  style="width: 250px; height: 50px;" alt="{{ f.name }}" src="{{ f.image.url }}">
+          </a>
+          </div>
+{% endfor %}
         </div>
       </div>
     </section>

@@ -2,12 +2,14 @@ from django.shortcuts import render
 from .models import RandkaDetail, KategoriaRandki, Comment
 from .forms import CommentForm, DodajForm
 from django.shortcuts import get_object_or_404
-
+from katalog.models import katalog
 # Create your views here.
 def glowna(request):
     kategorie = KategoriaRandki.objects.all()
+    posty = katalog.objects.all()[:4]
     context = {
         'kategorie': kategorie,
+        'posty': posty
     }
     return render(request, 'randki/glowna.html', context)
 

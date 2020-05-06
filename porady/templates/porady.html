@@ -37,8 +37,8 @@
           {% for p in posts %}
           <div class="col-lg-4">
             <div class="card hover-shadow-lg hover-translate-y-n10">
-              <a href="#">
-                <img alt="Image placeholder" src="{{p.image.url}}" class="card-img-top">
+              <a href="{% url 'porady:porady_detail' pk=p.pk %}">
+                <img alt="Image placeholder" src="{{p.imgglowne.url}}" class="card-img-top">
               </a>
               <div class="card-body py-5 text-center">
                 <a href="#" class="d-block h5 lh-150">{{p.title}}</a>
@@ -66,7 +66,7 @@
           {% for f in firmy %}
 
           <div class="client col-lg-2 col-md-3 col-4 py-3">
-            <img alt="Image placeholder" src="">
+            <img alt="Image placeholder" src="{{ f.image.url }}">
           </div>
           {% endfor %}
         </div>
@@ -87,7 +87,7 @@
           <div class="col-lg-6">
             <div class="card" data-animate-hover="1">
               <div class="animate-this">
-                <iframe width="560" height="315" src="{{ p.film }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>             
+                <iframe width="538" height="315" src="{{ p.film }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>             
                 <span class="btn-inner--icon">
                   </span>
                 </a>

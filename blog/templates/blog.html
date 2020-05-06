@@ -29,7 +29,7 @@
            
             <div class="card hover-shadow-lg hover-translate-y-n10">
               <a href="{% url 'blog:post_detail' pk=p.pk %}">
-                <img alt="Image placeholder" src="{{ p.img.url }}" class="card-img-top">
+                <img alt="Image placeholder" src="{{ p.imgglowne.url }}" class="card-img-top">
               </a>
               <div class="card-body py-5 text-center">
                 <a href="{% url 'blog:post_detail' pk=p.pk %}" class="d-block h5 lh-150">{{p.title}}</a>

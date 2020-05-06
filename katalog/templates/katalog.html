@@ -74,13 +74,9 @@
         <div class="media-body">
          <a href="{% url 'katalog:kategoria' pk=k.pk %}">
             <h5 class="text-md d-block text-limit mb-2 ml-5 text-left"><u>{{k.name}}</u></h5>
-         
+          </a>
         </div>
-        <div class="media-body">
-          <a href="{% url 'katalog:kategoria' pk=k.pk %}">
-             <h5 class="text-md d-block text-limit mb-2 ml-5 text-left"><u>{{k.name}}</u></h5>
-          
-         </div>
+    
       
     </div>
     {% endfor %}
@@ -88,7 +84,6 @@
         
 
  
-        
     </div>
 
     <section class="slice">
@@ -106,12 +101,13 @@
       </div>
     </section>
     <!-- Testimonials (v6) -->
+    
     <section class="slice slice-lg">
       <div class="container">
         <div class="mb-5 text-center">
-          <h3 class=" mt-4">Najnowsze artykuły profesjonalistów</h3>
+          <h3 class=" mt-4">Porady profesjonalistów</h3>
           <div class="fluid-paragraph mt-3">
-            <p class="lead lh-180">Ludzie pragnący dzielić się swoim doświadczeniem i swoją wiedzą za darmo. Sprawdź!</p>
+            <p class="lead lh-180">Posłuchaj co do powiedzenia mają najbardziej znani polacy w Wielkiej Brytanii.</p>
           </div>
         </div>
         <div class="row">
@@ -119,10 +115,8 @@
           <div class="col-lg-6">
             <div class="card" data-animate-hover="1">
               <div class="animate-this">
-                <img alt="Image placeholder" src="{{ p.zdjecie.url }}" class="card-img-top">
-                <a href="{{p.film}}" class="btn btn-lg btn-white btn-icon-only rounded-circle shadow-sm position-absolute right-4 top-4 hover-scale-110" data-fancybox>
-                  <span class="btn-inner--icon">
-                    <i class="fas fa-play"></i>
+                <iframe width="538" height="300" src="{{ p.film }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>             
+                <span class="btn-inner--icon">
                   </span>
                 </a>
               </div>
@@ -130,24 +124,27 @@
                 <blockquote class="blockquote">
                   <span class="quote"></span>
                   <div class="quote-text">
+                    <p class="font-italic lh-170">{{p.title}}.</p>
                     <footer class="blockquote-footer">
-                      {{p.title}} <cite title="Source Title">{{p.author}}</cite>
+                      Nagrany przez <cite title="Source Title">{{p.author}}</cite>
                     </footer>
                   </div>
                 </blockquote>
               </div>
             </div>
           </div>
-       {% endfor %}
+         {% endfor %}
         </div>
         <div class="mt-5 text-center">
+          
           <a href="{% url 'porady:porady_list' %}" class="btn btn-sm btn-primary rounded-pill btn-icon">
             <span class="btn-inner--icon"><i class="fas fa-angle-right"></i></span>
-            <span class="btn-inner--text">Zobacz wszystkie artykuły</span>
+            <span class="btn-inner--text">Zobacz wszystkie porady</span>
           </a>
         </div>
       </div>
     </section>
+
     <!-- Call to action (v5) -->
     <section class="slice slice-lg bg-section-secondary" id=sct-call-to-action><a href="#sct-call-to-action" class="tongue tongue-up tongue-section-primary" data-scroll-to>
         <i class="fas fa-angle-up"></i>
@@ -157,14 +154,15 @@
           <div class="col-lg-8 text-center">
             <h3 class="font-weight-400">Jestem gotów aby reklamować się w  <span class="font-weight-700">Niezbędniku</span> Emigranta.</h3>
             <div class="mt-5">
-              <a href="https://themes.getbootstrap.com/product/purpose-website-ui-kit/" class="btn btn-primary rounded-pill hover-translate-y-n3">
+              <a href="{% url 'app:kup' %}" class="btn btn-primary rounded-pill hover-translate-y-n3">
                 Kup reklamę
               </a>
-              <a href="{% static 'docs/index.html" class="btn btn-link" data-toggle="tooltip" data-placement="bottom" title="Official documentation">Dodaj firmę za darmo</a>
+              <a href="{% url 'katalog:dodajfirme' %}" class="btn btn-link" data-toggle="tooltip" data-placement="bottom" title="Official documentation">Dodaj firmę za darmo</a>
             </div>
           </div>
         </div>
       </div>
     </section>
+    
   </div>
 {% include 'basic/footer.html' %}

@@ -66,20 +66,21 @@
         </div>
       </div>
     </section>
-    <section class="slice slice-lg delimiter-bottom">
+    <section class="slice slice-lg delimiter-bottom mt-5">
       <div class="container">
         <!-- Title -->
         <div class="mb-5 text-center">
-          <h3 class="h6">Najlepsze polskie firmy w UK</h3>
+          <h3 class="h3">Najlepsze polskie firmy w UK</h3>
         </div>
         <!-- Products -->
         <div class="row">
+  
           {% for p in posty %}
           <div class="col-lg-3 col-sm-6">
             <div class="card card-product">
               <div class="card-image">
-                <a href="#">
-                  <img alt="Image placeholder" src="" class="img-center img-fluid">
+                <a href="{% url 'katalog:firma_detail' pk=p.pk %}">
+                  <img alt="Image placeholder" style="width: 250px; height: 50px;" src="{{ p.image.url }}" class="img-center img-fluid">
                 </a>
               </div>
               <div class="card-body text-center pt-0">
@@ -90,6 +91,8 @@
             </div>
           </div>
     {% endfor %}
+  
+  
         </div>
       </div>
     </section>
