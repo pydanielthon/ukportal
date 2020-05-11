@@ -8,7 +8,7 @@ from django.views.generic import TemplateView, ListView
 def homepage(request):
     porady = Porady.objects.all()[:2]
     wpisy = Post.objects.all()[:3]
-    firmy = katalog.objects.all()[:4]
+    firmy = katalog.objects.filter(premium = True)
     wideo = PoradyVideo.objects.all()[:2]
     context = {
         'porady': porady,

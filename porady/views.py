@@ -7,7 +7,7 @@ def porady_list(request):
     posts = Porady.objects.all()
     najlepszy = Porady.objects.all()[:3]
     video = PoradyVideo.objects.all()[:3]
-    firmy = katalog.objects.all()[:6]
+    firmy = katalog.objects.filter(premium = True)
     context = {
         'posts': posts,
         'najlepszy': najlepszy,
@@ -18,7 +18,7 @@ def porady_list(request):
 
 def porady_detail(request, pk):
     post = get_object_or_404(Porady, pk=pk)
-    firmy = katalog.objects.all()[:4]
+    firmy = katalog.objects.filter(premium = True)
     posty = Post.objects.all()[:3]
     context =  {
         'post': post,

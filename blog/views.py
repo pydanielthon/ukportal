@@ -17,7 +17,7 @@ def post_detail(request, pk):
     comments = post.comments.filter(active=True)
     new_comment = None
     posty = Post.objects.all()
-    firmy = katalog.objects.all()[:6]
+    firmy = katalog.objects.filter(premium = True)
     if request.method == 'POST':
         comment_form = CommentForm(data=request.POST)
         if comment_form.is_valid():

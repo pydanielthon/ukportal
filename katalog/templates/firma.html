@@ -76,33 +76,22 @@
       </div>
     </div>
   </section>
-  <section class="slice slice-lg delimiter-bottom mt-5">
+  <section class="slice clients">
+    <h3 class=" mt-4 text-center">Najlepsze Polskie Firmy</h3>
     <div class="container">
-      <!-- Title -->
-      <div class="mb-5 text-center">
-        <h3 class="h3">Najlepsze polskie firmy w UK</h3>
-      </div>
-      <!-- Products -->
-      <div class="row">
-
-        {% for p in posty %}
-        <div class="col-lg-3 col-sm-6">
-          <div class="card card-product">
-            <div class="card-image">
-              <a href="{% url 'katalog:firma_detail' pk=p.pk %}">
-                <img alt="Image placeholder" style="width: 250px; height: 50px;" src="{{ p.image.url }}" class="img-center img-fluid">
-              </a>
-            </div>
-            <div class="card-body text-center pt-0">
-              <h6><a href="#">{{p.name}}</a></h6>
-          
-            </div>
-    
-          </div>
+      
+      <div class="client-group row justify-content-center">
+        
+        {% for f in posty %}
+        <div class="client col-lg-2 col-md-5 col-4 py-5">
+          <a href="{% url 'katalog:firma_detail' pk=f.pk %}">
+            {% if f.image %}
+          <img  alt="{{ f.name }}" src="{{ f.image.url }}">
+          {% else %}
+          {% endif %}
+        </a>
         </div>
-  {% endfor %}
-
-
+{% endfor %}
       </div>
     </div>
   </section>

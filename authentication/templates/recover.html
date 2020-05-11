@@ -1,10 +1,12 @@
 {% load static %}
-{% include 'basic/header.html' %}
+{% load crispy_forms_tags %}
+
+{% include 'basic/header2.html' %}
 <section class="slice slice-lg min-vh-100 d-flex align-items-center bg-section-secondary">
       <!-- SVG background -->
       <div class="bg-absolute-cover bg-size--contain d-none d-lg-block">
         <figure class="w-100">
-          <img alt="Image placeholder" src="../../assets/img/svg/backgrounds/bg-3.svg" class="svg-inject">
+          <img alt="Image placeholder" src="{% static 'assets/img/svg/backgrounds/bg-3.svg' %}" class="svg-inject">
         </figure>
       </div>
       <div class="container py-5 px-md-0 d-flex align-items-center">
@@ -14,34 +16,32 @@
               <div class="card shadow zindex-100 mb-0">
                 <div class="card-body px-md-5 py-5">
                   <div class="mb-5">
-                    <h6 class="h3">Password reset</h6>
-                    <p class="text-muted mb-0">Enter your email below to proceed.</p>
+                    <h6 class="h3">Wygeneruj nowe hasło</h6>
+                    <p class="text-muted mb-0">Wpisz swój email, aby zrestartować hasło.</p>
                   </div>
                   <span class="clearfix"></span>
                   <form role="form">
                     <div class="form-group">
-                      <label class="form-control-label">Email address</label>
+                      <label class="form-control-label">Email</label>
                       <div class="input-group input-group-merge">
                         <div class="input-group-prepend">
-                          <span class="input-group-text"><i class="fas fa-user"></i></span>
                         </div>
-                        <input type="email" class="form-control" id="input-email" placeholder="name@example.com">
-                      </div>
+                        {{ form.as_p }}          
+                           </div>
                     </div>
-                    <div class="mt-4"><button type="button" class="btn btn-sm btn-primary btn-icon rounded-pill">
-                        <span class="btn-inner--text">Reset password</span>
+                    <div class="mt-4"><button type="submit" class="btn btn-sm btn-primary btn-icon rounded-pill">
+                        <span class="btn-inner--text">Zresetuj hasło</span>
                         <span class="btn-inner--icon"><i class="fas fa-long-arrow-alt-right"></i></span>
                       </button></div>
                   </form>
                 </div>
-                <div class="card-footer px-md-5"><small>Not registered?</small>
-                  <a href="#" class="small font-weight-bold">Create account</a></div>
-              </div>{{form.as_p}}
+                <div class="card-footer px-md-5"><small>Nie masz konta?</small>
+                  <a href="{% url 'authentications:signup' %}" class="small font-weight-bold">Rejestracja</a></div>
+              </div>
             </div>
             <div class="col-lg-6 order-lg-1 d-none d-lg-block">
               <blockquote>
-                <h3 class="h2 mb-4">Keep your face always toward the sunshine - and shadows will fall behind you.</h3>
-                <footer>— <cite class="text-lg">John Sulivan</cite></footer>
+                <h3 class="h2 mb-4">Wygeneruj nowe hasło</h3>
               </blockquote>
             </div>
           </div>

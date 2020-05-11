@@ -1,38 +1,38 @@
 {% load static %}
   {% include 'basic/header2.html' %}
 
-  
-  <section class="slice slice-lg delimiter-bottom mt-5">
+  <!-- My Search Form -->
+
+
+  <section class="slice clients">
+    <h3 class=" mt-4 text-center">Wyszukaj firmę</h3>
     <div class="container">
-      <!-- Title -->
-      <div class="mb-5 text-center">
-        <h1 class="h1">Najlepsze polskie firmy w UK</h1>
-      </div>
-      <!-- Products -->
-      <div class="row">
-
-        {% for p in posty %}
-        <div class="col-lg-3 col-sm-6">
-          <div class="card card-product">
-            <div class="card-image">
-              <a href="{% url 'katalog:firma_detail' pk=p.pk %}">
-                <img alt="Image placeholder" style="width: 250px; height: 50px;" src="{{ p.image.url }}" class="img-center img-fluid">
-              </a>
-            </div>
-            <div class="card-body text-center pt-0">
-              <h6><a href="#">{{p.name}}</a></h6>
-          
-            </div>
-    
+      
+      <div class="client-group row justify-content-center">
+        <div class="container">
+          <div class="col mt-3 mb-5">
+          <form method="GET">
+          {{ form }}
+          <button type="submit" class="btn btn-primary center mt-3">Wyszukaj</button>
+          </form>
           </div>
+          </div>
+        {% for f in posty %}
+        <div class="client col-lg-2 col-md-5 col-4 py-5">
+          <a href="{% url 'katalog:firma_detail' pk=f.pk %}">
+            {% if f.image %}
+          <img  alt="{{ f.name }}" src="{{ f.image.url }}">
+          {% else %}
+          {% endif %}
+        </a>
         </div>
-  {% endfor %}
-
-
+{% endfor %}
       </div>
     </div>
   </section>
-  <section class="slice slice-lg bg-gradient-primary">
+
+
+  <section class="slice slice-lg bg-primary">
 
     <div class="container">
       <div class="mb-5 text-center">
@@ -44,13 +44,18 @@
           <div class="table-responsive-lg">
             <table class="table table-hover table-scale--hover table-cards align-items-center">
               <tbody>
-                  {% for k in ogl %}
+                  {% for k in ogl2 %}
                 <tr>
                   <th scope="row">
                     <div class="media align-items-center">
                       <div>
-                        <span class="avatar bg-primary text-white mr-4"><img href="{{ k.image.url }}"></img></span>
-                      </div>
+                        <span class="avatar text-white mr-4">
+                          {% if k.image %}
+                          <img src="{{ k.image.url }}"></img></span>
+                          {% else %}
+                          {% endif %}
+                        </div>
+
                       <div class="media-body">
                         <a href="{% url 'katalog:firma_detail' pk=k.pk %}" class="h5 mb-0">{{ k.name }}</a>
                       </div>
@@ -68,6 +73,82 @@
             </table>
           </div>
    
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="slice slice-lg">
+    <div class="container">
+      <div class="mb-5 text-center">
+        <h3 class=" mt-4">Cennik Płatnej Reklamy</h3>
+        <div class="fluid-paragraph mt-3">
+          <p class="lead lh-180">Rozwijaj swoją firmę razem z nami!</p>
+        </div>
+      </div>
+      <div class="pricing-container">
+        <div class="text-center mb-7">
+          <div class="btn-group" role="group">
+            <button type="button" class="btn btn-secondary active" data-pricing="monthly">Płatność miesięczna</button>
+            <button type="button" class="btn btn-secondary" data-pricing="yearly">Płatność rocznie</button>
+          </div>
+        </div>
+        <div class="pricing card-group flex-column flex-lg-row mb-3">
+          <div class="card card-pricing text-center px-3 mb-5 mb-lg-0">
+            <span class="h6 w-60 mx-auto px-4 py-1 rounded-bottom bg-primary text-white">Darmowy</span>
+            <div class="card-header py-5 border-0">
+              <div class="h1 text-primary text-center mb-0" data-pricing-value="0">£<span class="price">0</span><span class="h6 ml-2"></span></div>
+            </div>
+            <div class="card-body delimiter-top">
+              <ul class="list-unstyled mb-4">
+                <li>Nazwa Firmy</li>
+                <li>Adres</li>
+                <li>Nr. Telefonu</li>
+                <li>E-mail</li>
+              </ul><button type="button" class="btn bg-primary text-white btn-sm btn-neutral mb-3">Zamawiam</button>
+            </div>
+          </div>
+          <div class="card card-pricing popular scale-110 text-center px-3 mb-5 mb-lg-0">
+            <span class="h6 w-60 mx-auto px-4 py-1 rounded-bottom bg-primary text-white">Podstawowy</span>
+            <div class="card-header py-5 border-0">
+              <div class="h1 text-primary text-center mb-0" data-pricing-value="50">£<span class="price">5</span><span class="h6 ml-2"></span></div>
+            </div>
+            <div class="card-body delimiter-top">
+              <ul class="list-unstyled mb-4">
+                <li>Pakiet Darmowy</li>
+                <li>Strona WWW</li>
+                <li>Linki do Social Media</li>
+                <li>Link do Google Maps</li>
+              </ul><button type="button" class="btn btn-sm btn-neutral bg-primary text-white mb-3">Zamawiam</button>
+            </div>
+          </div>
+          <div class="card card-pricing text-center px-3 mb-5 mb-lg-0">
+            <span class="h6 w-60 mx-auto px-4 py-1 rounded-bottom bg-primary text-white">Biznes</span>
+            <div class="card-header py-5 border-0">
+              <div class="h1 text-primary text-center mb-0" data-pricing-value="100">£<span class="price">10</span><span class="h6 ml-2"></span></div>
+            </div>
+            <div class="card-body delimiter-top">
+              <ul class="list-unstyled mb-4">
+                <li>Pakiet podstawowy</li>
+                <li>1 Wpis na Blogu</li>
+                <li>1 Film Video</li>
+                <li>1 Miejsce w kategorii</li>
+              </ul><button type="button" class="btn btn-sm btn-neutral bg-primary text-white mb-3">Zamawiam</button>
+            </div>
+          </div>
+          <div class="card card-pricing text-center px-3 mb-5 mb-lg-0">
+            <span class="h6 w-60 mx-auto px-4 py-1 rounded-bottom bg-primary text-white">Dla najlepszych</span>
+            <div class="card-header py-5 border-0">
+              <div class="h1 text-primary text-center mb-0" data-pricing-value="200">£<span class="price">20</span><span class="h6 ml-2"></span></div>
+            </div>
+            <div class="card-body delimiter-top">
+              <ul class="list-unstyled mb-4">
+                <li>Pakiet Biznes</li>
+                <li>2 Wpisy na Blogu</li>
+                <li>2 Filmy Video</li>
+                <li>Logo firmy w polecanych</li>
+              </ul><button type="button" class="btn btn-sm btn-neutral bg-primary text-white mb-3">Zamawiam</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

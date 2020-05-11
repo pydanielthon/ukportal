@@ -1,5 +1,5 @@
 from django import forms
-from allauth.account.forms import LoginForm, SignupForm
+from allauth.account.forms import LoginForm, SignupForm, ResetPasswordForm
 
 class SimpleLoginForm(LoginForm):
     def __init__(self, *args, **kwargs):
@@ -36,5 +36,16 @@ class SimpleSignupForm(SignupForm):
 
                                                                      'placeholder': '*************'})
         # self.fields['email2'].label = ''
+        self.fields['email'].label = ''
         self.fields['password1'].label = ''
+        self.fields['password2'].label = ''
 
+class SimpleResetForm(ResetPasswordForm):
+    def __init__(self, *args, **kwargs):
+        super(SimpleResetForm, self).__init__(*args, **kwargs)
+
+        self.fields['email'].widget = forms.TextInput(attrs={'type': 'email',
+                                                                    'class': 'form-control',
+
+                                                                    'placeholder': '*************'})
+        self.fields['email'].label = ''

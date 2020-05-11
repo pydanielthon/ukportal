@@ -63,7 +63,10 @@
             <div class="card card-product">
               <div class="card-image">
                 <a href="#">
+                  {% if p.image %}
                   <img alt="Image placeholder" src="{{ p.image.url }}" class="img-center img-fluid">
+                  {% else %}
+                  {% endif %}
                 </a>
               </div>
               <div class="card-body text-center pt-0">

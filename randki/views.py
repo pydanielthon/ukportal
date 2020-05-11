@@ -6,7 +6,7 @@ from katalog.models import katalog
 # Create your views here.
 def glowna(request):
     kategorie = KategoriaRandki.objects.all()
-    posty = katalog.objects.all()[:4]
+    posty = katalog.objects.filter(premium = True)
     context = {
         'kategorie': kategorie,
         'posty': posty

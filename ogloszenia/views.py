@@ -1,14 +1,20 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.shortcuts import get_object_or_404
 # Create your views here.
 from .models import OgloszeniaKategoria, OgloszenieDetail, Dodaj
 from katalog.models import katalog
 from .forms import CommentForm, DodajForm
 from blog.models import Post
+def after(request):
+    posty = katalog.objects.filter(premium = True)
+    context = {
+        'posty': posty
+        }
 
+    return render(request, 'after.html', context)
 def glowna(request):
     kategorie = OgloszeniaKategoria.objects.all()
-    posty = katalog.objects.all()[:4]
+    posty = katalog.objects.filter(premium = True)
     context = {
         'kategorie': kategorie,
         'posty': posty,
@@ -55,7 +61,8 @@ def dodaj(request):
     form = DodajForm(request.POST)   
     if form.is_valid():
         ogloszenie = form.save(commit=False)
-        ogloszenie.save() 
+        ogloszenie.save()
+        return redirect('ogloszenia:after') 
     else:
         ogloszenie = DodajForm()
     context = {

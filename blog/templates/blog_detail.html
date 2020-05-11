@@ -163,7 +163,10 @@
           {% for f in firmy %}
           <div class="client col-lg-2 col-md-5 col-4 py-5">
             <a href="{% url 'katalog:firma_detail' pk=f.pk %}">
-            <img  style="width: 250px; height: 50px;" alt="{{ f.name }}" src="{{ f.image.url }}">
+              {% if f.image %}           
+               <img  style="width: 250px; height: 50px;" alt="{{ f.name }}" src="{{ f.image.url }}">
+               {% else %}
+               {% endif %}
           </a>
           </div>
 {% endfor %}

@@ -24,8 +24,7 @@ class katalog(models.Model):
                                 on_delete=models.CASCADE)
 
     name = models.CharField(max_length=200, db_index=True)
-    image = models.ImageField(upload_to='katalog/%Y/%m/%d',
-                                blank=True, null=True)
+    image = models.ImageField(upload_to='katalog/%Y/%m/%d', null=True, blank=True)
     adres = models.CharField(max_length=300, null=True)
     telefon = models.FloatField(blank=True, null=True)
     mail = models.EmailField(blank=True, null=True)

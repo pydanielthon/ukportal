@@ -46,3 +46,11 @@ class DodajFirme(forms.ModelForm):
             'telefon': 'Numer Telefonu',
             'image': 'Logo Firmy'
         }
+
+
+class SearchForm(forms.Form):
+    name = forms.CharField(max_length=50, label="", required=False, widget=forms.TextInput(attrs={'class': 'form-control',
+                                                                        'placeholder': 'Wpisz nazwe firmy...',
+                                                                        'label': 'nazwa'}))
+    
+    

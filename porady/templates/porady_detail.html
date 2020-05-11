@@ -110,8 +110,9 @@
 
              
             <form method="post" style="margin-top: 1.3em;">
-                      {{ comment_form | crispy }}
                       {% csrf_token %}
+                      {{ comment_form | crispy }}
+
                       <button type="submit" class="btn btn-primary btn-center  btn-md">Dodaj komentarz</button>
              </form>
              {% else %}
@@ -163,10 +164,13 @@
           {% for f in firmy %}
           <div class="client col-lg-2 col-md-5 col-4 py-5">
             <a href="{% url 'katalog:firma_detail' pk=f.pk %}">
-            <img  style="width: 250px; height: 50px;" alt="{{ f.name }}" src="{{ f.image.url }}">
+              {% if f.image %}
+            <img  alt="{{ f.name }}" src="{{ f.image.url }}">
+            {% else %}
+            {% endif %}
           </a>
           </div>
-{% endfor %}
+  {% endfor %}
         </div>
       </div>
     </section>

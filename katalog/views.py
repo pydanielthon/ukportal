@@ -1,9 +1,15 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from .models import katalog, Category
 from porady.models import PoradyVideo
-from .forms import DodajFirme
+from .forms import DodajFirme, SearchForm
+def after(request):
+    posty = katalog.objects.filter(premium = True)
 
+    context = {
+        'posty': posty,
+    }
+    return render(request, 'after.html', context)
 def katalog_list(request):
     katalogs = katalog.objects.order_by('category')
     kategoria = Category.objects.all()
@@ -19,7 +25,7 @@ def katalog_list(request):
 
 def firma_detail(request, pk):
     katalogg = get_object_or_404(katalog, pk=pk)
-    posty = katalog.objects.all()[:4]
+    posty = katalog.objects.filter(premium = True)
 
     context = {
         'katalogg': katalogg,
@@ -32,6 +38,8 @@ def dodajfirme(request):
     if form.is_valid():
         firma = form.save(commit=False)
         firma.save() 
+        return redirect('katalog:after') 
+
     else:
         firma = DodajFirme()
     context = {
@@ -41,13 +49,22 @@ def dodajfirme(request):
 def kategoria(request, pk):
     kategoriaa = get_object_or_404(Category, pk=pk)
     ogl = kategoriaa.katalog.all()
-    posty = katalog.objects.all()[:4]
+    posty = katalog.objects.filter(premium = True)
+    ogl2 = katalog.objects.filter(premium = True)
+    form = SearchForm(request.GET)
 
+    #Odbieranie instacnji get
+    name = request.GET.get('name', False)
+    if name:
+        posty = posty.filter(name__icontains=name) 
 
     context =  {'kategoriaa': kategoriaa,
                 'ogl': ogl,
                 'posty': posty,
+                'ogl2': ogl2,
+                'form': form,
 
 
 }
     return render(request, 'kategorie.html', context)
+

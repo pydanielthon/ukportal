@@ -146,7 +146,9 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 ACCOUNT_FORMS = {'login': 'authentication.forms.SimpleLoginForm',
-                 'signup': 'authentication.forms.SimpleSignupForm'}
+                 'signup': 'authentication.forms.SimpleSignupForm',
+                 'recovery': 'authentication.forms.ResetPasswordForm',
+                 'reset_password': 'authentication.forms.SimpleResetForm'}
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
@@ -177,4 +179,3 @@ CSRF_COOKIE_SECURE = False
 ACCOUNT_LOGOUT_REDIRECT_URL = 'app:home'
 
 ACCOUNT_LOGOUT_ON_GET = True
-ACCOUNT_FORMS = {'change_password': 'mysite.forms.MyCustomChangePasswordForm'}

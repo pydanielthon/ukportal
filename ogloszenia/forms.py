@@ -6,6 +6,10 @@ class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
         fields = ('name', 'body')
+        labels = {
+            'name': 'Imię',
+            'body': 'Treść'
+        }
 
 class DodajForm(forms.ModelForm):
     class Meta:

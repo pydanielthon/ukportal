@@ -8,7 +8,7 @@
         <div class="col">
           <div class="row align-items-center justify-content-center">
             <div class="col-md-9 col-lg-7 text-center">
-              <h2 class="h1 mb-4 text-white">Katalog </h2>
+              <h2 class="h1 mb-4 text-white mt-5">Katalog </h2>
               <p class="lead lh-180 text-white">Dodaj swoją firmę za darmo, lub kup reklamę w naszym portalu, aby dotrzeć do nowych klientów.</p>
           
      
@@ -25,61 +25,47 @@
     </div>
   </section>
     <!-- Header (v16) -->
+  
+    <!-- Table (v1) -->
     <section class="slice slice-xl pb-6" data-offset-top="#header-main">
       <div class="container pt-0">
-  
+  <h2 class="text-center mb-4">Kategorie firm</h2>
         <div class="row row-grid delimiter-top">
-          <div class="col-lg-4">
+          {% for k in kategoria %}
+
+          <div class="col-lg-4 mt-5">
             <div class="d-flex align-items-center">
-              <img alt="Image placeholder" src="{% static 'assets/img/icons/essential/detailed/Ballance.svg' %}" class="svg-inject" style="width: 90px; height: 90px;">
+              <a href="{% url 'katalog:kategoria' pk=k.pk %}">
               <div class="icon-text px-4">
-                <h5 class="mb-1">Zarabiaj</h5>
-                <p class="mb-0">Reklama w naszym serwisie to inwestycja, a nie koszt.</p>
+                <h5 class="mb-1">{{k.name}}</h5>
+              </a>
               </div>
             </div>
           </div>
-          <div class="col-lg-4">
-            <div class="d-flex align-items-center">
-              <img alt="Image placeholder" src="{% static 'assets/img/icons/essential/detailed/Charts_1.svg' %}" class="svg-inject" style="width: 90px; height: 90px;">
-              <div class="icon-text px-4">
-                <h5 class="mb-1">Rośnij</h5>
-                <p class="mb-0">Wszystkie firmy w naszym portalu, notują wzrost sprzedaży.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="d-flex align-items-start">
-              <img alt="Image placeholder" src="{% static 'assets/img/icons/essential/detailed/Group.svg' %}" class="svg-inject" style="width: 90px; height: 90px;">
-              <div class="icon-text px-4">
-                <h5 class="mb-1">Poznawaj</h5>
-                <p class="mb-0">Poznaj ludzi, którzy pomogą Ci się rozwinąć.</p>
-              </div>
-            </div>
-          </div>
+          {% endfor %}
+
         </div>
       </div>
     </section>
-    <!-- Table (v1) -->
-    
     <div class="list-group container">
     
     
         <div class="list-group-item">
-            {% for k in kategoria %}
     <div class="media align-items-center">
         <div class="mr-3">
             
     
         </div>
+
         <div class="media-body">
-         <a href="{% url 'katalog:kategoria' pk=k.pk %}">
-            <h5 class="text-md d-block text-limit mb-2 ml-5 text-left"><u>{{k.name}}</u></h5>
-          </a>
+
+        
+            <h5 class="text-md d-block text-limit mb-2 ml-5 text-left"><u></u></h5>
+     
         </div>
     
       
     </div>
-    {% endfor %}
         </div>
         
 
