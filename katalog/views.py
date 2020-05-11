@@ -50,7 +50,7 @@ def kategoria(request, pk):
     kategoriaa = get_object_or_404(Category, pk=pk)
     ogl = kategoriaa.katalog.all()
     posty = katalog.objects.filter(premium = True)
-    ogl2 = katalog.objects.filter(premium = True)
+    ogl2 = katalog.objects.all()
     form = SearchForm(request.GET)
 
     #Odbieranie instacnji get

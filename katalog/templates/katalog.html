@@ -25,52 +25,36 @@
     </div>
   </section>
     <!-- Header (v16) -->
-  
-    <!-- Table (v1) -->
-    <section class="slice slice-xl pb-6" data-offset-top="#header-main">
-      <div class="container pt-0">
-  <h2 class="text-center mb-4">Kategorie firm</h2>
-        <div class="row row-grid delimiter-top">
-          {% for k in kategoria %}
+    <section class="slice slice-lg bg-neutral" id="sct-products">
+      <div class="container">
+        <h2 class="text-center mb-6">Kategorie firm</h2>
 
-          <div class="col-lg-4 mt-5">
-            <div class="d-flex align-items-center">
-              <a href="{% url 'katalog:kategoria' pk=k.pk %}">
-              <div class="icon-text px-4">
-                <h5 class="mb-1">{{k.name}}</h5>
-              </a>
+        <div class="row">
+          {% for k in kategoria %}
+          <div class="card hover-shadow-lg hover-translate-y-n10 mr-5">
+            <div class="card-body text-center">
+              <div class="card-image">
+             
               </div>
+              <div class="card-body text-center pt-0">
+                <h6><a href="{% url 'katalog:kategoria' pk=k.pk %}">{{k.name}}</a></h6>
+                <p class="text-sm">
+                  
+                </p>
+                
+             
+              </div>
+        
             </div>
           </div>
-          {% endfor %}
-
+{% endfor %}
         </div>
+        <!-- Load more -->
+  
       </div>
+    
     </section>
-    <div class="list-group container">
     
-    
-        <div class="list-group-item">
-    <div class="media align-items-center">
-        <div class="mr-3">
-            
-    
-        </div>
-
-        <div class="media-body">
-
-        
-            <h5 class="text-md d-block text-limit mb-2 ml-5 text-left"><u></u></h5>
-     
-        </div>
-    
-      
-    </div>
-        </div>
-        
-
- 
-    </div>
 
     <section class="slice">
       <div class="container">

@@ -3,7 +3,7 @@
 
 <div class="main-content">
     <!-- Header -->
-    <section class="slice slice-xl bg-cover bg-size--cover" data-offset-top="#header-main" style="background-image: url({% static 'assets/img/backgrounds/randki.jpg' %}); background-position: center center;">
+    <section class="slice slice-xl bg-cover bg-size--cover" data-offset-top="#header-main" style="background-image: url({% static 'assets/img/backgrounds/randki1.jpg' %}); background-position: top center;">
       <span class="mask bg-primary opacity-4"></span>
       <div class="container py-6">
         <div class="row justify-content-center">
@@ -21,13 +21,14 @@
         </div>
       </div>
     </section>
+ 
     <!-- Products -->
-    <section class="slice slice-lg delimiter-bottom" id="sct-products">
+    <section class="slice slice-lg bg-neutral" id="sct-products">
       <div class="container">
         <div class="row">
           {% for x in kategorie %}
-          <div class="col-xl-3 col-lg-4 col-sm-6">
-            <div class="card card-product">
+          <div class="card hover-shadow-lg hover-translate-y-n10">
+            <div class="card-body text-center">
               <div class="card-image">
              
               </div>
@@ -62,11 +63,13 @@
           <div class="col-lg-3 col-sm-6">
             <div class="card card-product">
               <div class="card-image">
-                <a href="#">
+                <a href="{% url 'katalog:firma_detail' pk=p.pk %}">
                   {% if p.image %}
                   <img alt="Image placeholder" src="{{ p.image.url }}" class="img-center img-fluid">
+                
                   {% else %}
                   {% endif %}
+                </a>
                 </a>
               </div>
               <div class="card-body text-center pt-0">

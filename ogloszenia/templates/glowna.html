@@ -21,18 +21,19 @@
         </div>
       </div>
     </section>
-    <!-- Products -->
-    <section class="slice slice-lg delimiter-bottom" id="sct-products">
+    <section class="slice slice-lg bg-neutral" id="sct-products">
       <div class="container">
+        <h2 class="text-center mb-6">Kategorie firm</h2>
+
         <div class="row">
           {% for x in kategorie %}
-          <div class="col-xl-3 col-lg-4 col-sm-6">
-            <div class="card card-product">
+          <div class="card hover-shadow-lg hover-translate-y-n10 mr-5">
+            <div class="card-body text-center">
               <div class="card-image">
              
               </div>
-              <div class="card text-center hover-shadow-lg hover-translate-y-n13 pt-0">
-                <h6><a href="{% url 'ogloszenia:kategoria' pk=x.pk %}">{{x.nazwa}}</a></h6>
+              <div class="card-body text-center pt-0">
+                <h6><a href="{% url 'randki:kategoria' pk=x.pk %}">{{x.nazwa}}</a></h6>
                 <p class="text-sm">
                   
                 </p>
@@ -47,7 +48,9 @@
         <!-- Load more -->
   
       </div>
+    
     </section>
+     
     
     <section class="slice slice-xl bg-cover bg-size--cover" style="background-image: url({% static 'assets/img/backgrounds/img-15.jpg' %}); background-position: center center;">
       <span class="mask bg-primary opacity-9"></span>

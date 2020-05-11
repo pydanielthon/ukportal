@@ -40,6 +40,7 @@ class Dodaj(models.Model):
     kategoria = models.ForeignKey(OgloszeniaKategoria,
                                 related_name='dodaj',
                                 on_delete=models.CASCADE,
+                                blank=True
                                 )
     tytul= models.CharField(max_length=250)
     tresc = models.TextField()

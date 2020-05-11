@@ -1,0 +1,40 @@
+{% load static %}
+{% include 'basic/header2.html' %}
+
+<section class="slice slice-lg bg-section-secondary overflow-hidden mt-6">
+    <div class="bg-absolute-cover bg-size--contain d-flex align-items-center mt-6">
+      <figure class="w-100">
+        <img alt="Image placeholder" src="{% static 'assets/img/svg/backgrounds/bg-2.svg' %}" class="svg-inject" style="height: 1000px;">
+      </figure>
+    </div>
+    <div class="container position-relative zindex-100">
+      <div class="mb-5 px-3 text-center">
+ 
+        <h3 class=" mt-4">Dziękujemy za dodanie ogłoszenia</h3>
+        <div class="fluid-paragraph mt-3">
+          <p class="lead lh-180">Twoje ogłoszenie zostało dodane. Teraz sprwadzamy jego poprawność. Ogłoszenie pojawi się na stronie w mkasymalnie 24 godziny.</p>
+        </div>
+      </div>
+  
+    </div>
+  </section>
+  <section class="slice clients">
+    <h3 class=" mt-4 text-center">Najlepsze Polskie Firmy</h3>
+    <div class="container">
+      
+      <div class="client-group row justify-content-center">
+        
+        {% for f in posty %}
+        <div class="client col-lg-2 col-md-5 col-4 py-5">
+          <a href="{% url 'katalog:firma_detail' pk=f.pk %}">
+            {% if f.image %}
+          <img  alt="{{ f.name }}" src="{{ f.image.url }}">
+          {% else %}
+          {% endif %}
+        </a>
+        </div>
+{% endfor %}
+      </div>
+    </div>
+  </section>
+  {% include 'basic/footer.html' %}

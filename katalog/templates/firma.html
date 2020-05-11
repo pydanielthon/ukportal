@@ -7,8 +7,11 @@
       <div class="row row-grid">
         <div class="col-lg-6">
           <div data-toggle="sticky" data-sticky-offset="30">
-            <a href="../../assets/img/theme/light/shop-product-lg-2.jpg" data-fancybox>
+            <a href="" data-fancybox>
+              {% if katalogg.image %}
               <img alt="Image placeholder" src="{{ katalogg.image.url }}" class="img-fluid">
+              {% else %}
+              {% endif %}
             </a>
       
           </div>
@@ -45,11 +48,16 @@
               
               <dd class="col-sm-9"><span class="text-sm">{{katalogg.www}}</span></dd>
               
-              {% else %} {% endif %}{% if katalogg.instagram %}
+              {% else %}
+               {% endif %}
+               {% if katalogg.instagram %}
               <dt class="col-sm-3"><span class="h6 text-sm mb-0">Instagram</span></dt>
               
               <dd class="col-sm-9"><span class="text-sm">{{katalogg.instagram}}</span></dd>
-              {% else %}    {% endif %}   {% if katalogg.fb %}
+              {% else %}    
+              
+              {% endif %}   
+              {% if katalogg.fb %}
               
               <dt class="col-sm-3"><span class="h6 text-sm mb-0">Facebook</span></dt>
               

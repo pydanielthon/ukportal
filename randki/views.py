@@ -1,9 +1,18 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import RandkaDetail, KategoriaRandki, Comment
 from .forms import CommentForm, DodajForm
 from django.shortcuts import get_object_or_404
 from katalog.models import katalog
 # Create your views here.
+def after(request):
+    posty = katalog.objects.filter(premium = True)
+
+    context = {
+        'posty': posty
+    }
+
+    return render(request, 'randki/after.html', context)
+
 def glowna(request):
     kategorie = KategoriaRandki.objects.all()
     posty = katalog.objects.filter(premium = True)
@@ -50,7 +59,8 @@ def dodaj(request):
     form = DodajForm(request.POST)   
     if form.is_valid():
         ogloszenie = form.save(commit=False)
-        ogloszenie.save() 
+        ogloszenie.save()
+        return redirect('randki:after') 
     else:
         ogloszenie = DodajForm()
     context = {
