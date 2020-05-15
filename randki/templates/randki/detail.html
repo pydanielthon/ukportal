@@ -3,7 +3,7 @@
 
 {% include 'basic/header.html' %}
 
-    </section> <section class="slice slice-xl bg-cover bg-size--cover" data-offset-top="#header-main" style="background-image: url({% static 'assets/img/backgrounds/randki.jpg' %}); background-position: center center;">
+    </section> <section class="slice slice-xl bg-cover bg-size--cover" data-offset-top="#header-main" style="background-image: url({% static 'assets/img/backgrounds/randki1.jpg' %}); background-position: top center;">
         <span class="mask bg-primary opacity-4"></span>
         <div class="container py-6">
           <div class="row justify-content-center">
@@ -11,7 +11,7 @@
               <h2 class="h1 text-white">{{ogloszenie.tytul}}</h2>
           
               <p class="lead text-white mt-4">{{ ogloszenie.miasto }}</p>
-      
+
             </div>
           </div>
         </div>
@@ -23,6 +23,12 @@
             <!-- Article body -->
             <article>
                 <h2 class="h1 text-primary mb-5">{{ogloszenie.tytul}}</h2>
+
+                <p class="lead text-primary mt-4">{{ ogloszenie.plec }}</p>
+{% if ogloszenie.img %}
+<img src={{ogloszenie.img.url}}>
+{% else %}
+{% endif %}
               <p class="lead">{{ ogloszenie.opis }}.</p>
  
             </article>

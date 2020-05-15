@@ -54,14 +54,14 @@ header .overlay {
 
 @media (pointer: coarse) and (hover: none) {
   header {
-    background: url('https://source.unsplash.com/XT5OInaElMw/1600x900') black no-repeat center center scroll;
+    background: url("{% static 'assets/img/moje/glowna.jpg' %}") black no-repeat center center scroll;
   }
   header video {
     display: none;
     
   }
   .bg-overlay {
-    background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url("https://unsplash.imgix.net/photo-1416339442236-8ceb164046f8?q=75&fm=jpg&s=8eb83df8a744544977722717b1ea4d09");
+    background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url("{% static 'assets/img/moje/glowna.jpg' %}");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -84,7 +84,7 @@ header .overlay {
           <h2 class="h5 text- mb-6">Portal stworzony, aby pomagać Polakom mieszkającym poza granicami Polski. <br>Znajdziesz tu porady, ogłoszenia i katalog firm. </h2>
           {% if user.is_authenticated %}
           {% else %}
-          <a href="{% url 'authentication:signup' %}" class="btn btn-white btn-icon rounded-pill hover-translate-y-n3 mt-5">
+          <a href="{% url 'authentication:signup' %}" class="btn btn-white btn-icon rounded-pill hover-translate-y-n3 mt-5 mb-5">
       
             <span class="btn-inner--icon">
               <i class="fas fa-user-plus"></i>
@@ -98,10 +98,10 @@ header .overlay {
     </div>
   </div>
 </header>
-<section class="slice slice-lg pt-lg-0">
+<section class="slice slice-lg pt-lg-0 mt-5">
   <div class="container">
     <div class="card-group flex-column flex-lg-row">
-      <div class="card bg-primary border-0 px-4 py-5 mt--150">
+      <div class="card bg-primary border-0 px-4 py-5 mt--100">
         <div class="card-body">
           <h5 class="h4 text-white">Porady Profesjonalistów</h5>
           <p class="mt-4 mb-0 text-white">
@@ -109,7 +109,7 @@ header .overlay {
           </p>
         </div>
       </div>
-      <div class="card bg-gradient-dark border-0 px-4 py-5 mt--150">
+      <div class="card bg-gradient-dark border-0 px-4 py-5 mt--100">
         <div class="card-body">
           <h5 class="h4 text-white">Katalog Firm</h5>
           <p class="mt-4 mb-0 text-white">
@@ -117,7 +117,7 @@ header .overlay {
           </p>
         </div>
       </div>
-      <div class="card bg-primary border-0 px-4 py-5 mt--150">
+      <div class="card bg-primary border-0 px-4 py-5 mt--100">
         <div class="card-body">
           <h5 class="h4 text-white">Portal Randkowy</h5>
           <p class="mt-4 mb-0 text-white">
