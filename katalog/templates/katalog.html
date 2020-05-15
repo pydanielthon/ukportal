@@ -24,50 +24,41 @@
       </div>
     </div>
   </section>
-  <section class="slice slice-lg ">
-    <span class="tongue tongue-top"><i class="fas fa-angle-up"></i></span>
+
+  <section class="slice slice-lg">
     <div class="container">
       <div class="mb-5 text-center">
-        <h2 class="text-center mb-6">Kategorie firm</h2>
-        <div class="fluid-paragraph mt-3">
+        <h2 class="text-center mb-3">Kategorie firm</h2>
+
+        <div class="fluid-paragraph ">
+          <p class="lead lh-180">Wybierz odpowiednią kategorię.</p>
         </div>
       </div>
-      <div class="row justify-content-center">
-        <div class="col-lg-10">
-          <div class="table-responsive-lg">
-            <table class="table table-hover table-scale--hover table-cards align-items-center">
-              <tbody>
-                {% for k in kategoria %}
-                <tr>
-                  <th scope="row">
-                    <div class="media align-items-center">
-                      <div>
-                        <span class="text-primary h5 mb-0 mr-4"></span>
-                      </div>
-                      <div class="media-body">
-                        <a href="{% url 'katalog:kategoria' pk=k.pk %}" class="h5 mb-0">{{k.name}}</a>
-                      </div>
-                    </div>
-                  </th>
-               
-                  <td>    <div class="media-body text-right">
-                    <a href="{% url 'katalog:kategoria' pk=k.pk %}" class="btn btn-sm btn-primary">Przejdź do Kategorii</a>
-                </div></td>
-                </tr>
-                <tr class="table-divider"></tr>
-                {% endfor %}
-       
-              </tbody>
-            </table>
-          </div>
-          <div class="text-center mt-5">
-            <a href="#" class="text-white"><i class="fas fa-angle-right mr-2"></i>View all job openings</a>
+      <div class="row">
+        {% for x in kategoria %}
+
+        <div class="col-lg-6">
+          <div class="card hover-shadow-lg hover-translate-y-n10" >
+  
+            <div class="card-body ">
+              
+                <div class="media-body text-center align-middle mb-0">
+                  <a href="{% url 'katalog:kategoria' pk=x.pk %}" class="align-middle h5 mb-0">{{x.name}}</a>
+                
+                <td>    
+                  
+              </div></td>
+
+            </div>
           </div>
         </div>
+       {% endfor %}
+      </div>
+      <div class="mt-5 text-center">
+        
       </div>
     </div>
   </section>
-
     
 
     <section class="slice">
