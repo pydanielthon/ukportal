@@ -6,126 +6,173 @@
 
 
 
-  <div class="main-content">
-    <section class="slice slice-lg" data-offset-top="#header-main">
-      <div class="container pt-6">
-        <div class="row justify-content-center">
-          <div class="col-md-9">
-            <h1 class="lh-150 mb-3">{{post.title1}}</h1>
-            <div class="media align-items-center mt-5">
-              <div>
-              
-              </div>
-              <div class="media-body">
-                <span class="d-block h6 mb-0 ">{{post.autor}}</span>
-                <span class="text-sm text-center">{{post.created_date}}</span>
-              </div>
+<div class="main-content">
+  <section class="slice slice-lg" data-offset-top="#header-main">
+    <div class="container pt-6">
+      <div class="row justify-content-center">
+        <div class="col-md-9">
+          <h1 class="lh-150 mb-3">{{post.title1}}</h1>
+          <div class="media align-items-center mt-5">
+            <div>
+            
+            </div>
+            <div class="media-body">
+              <span class="d-block h6 mb-0 ">{{post.autor}}</span>
+              <span class="text-sm text-center">{{post.created_date}}</span>
             </div>
           </div>
         </div>
       </div>
-    </section>
-    <section class="bg-cover bg-size--cover" style="height: 600px; width:100%; background-image: url('{{ post.imgglowne.url }}'); background-position: center center;"></section>
-    <section class="slice">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-9">
-            <!-- Article body -->
-            <article>
-              <p class="lead">{{ post.text1 }}</p>
-              {% if post.title2 %}
-              <h5>{{post.title2}}</h5>
-              {% else %}
-              <p style="margin-bottom: -300px;"></p>
-              {% endif %}
-              <figure class="figure">
-                
+    </div>
+  </section>
+  <section class="bg-cover bg-size--cover" style="height: 600px; width:100%; background-image: url('{{ post.imgglowne.url }}'); background-position: center center;"></section>
+  <section class="slice">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-9">
+          <!-- Article body -->
+          <article>
+            <p class="lead">{{ post.text1 }}</p>
+            {% if post.title2 %}
+            <h5>{{post.title2}}</h5>
+            {% else %}
+            <p style="margin-bottom: -300px;"></p>
+            {% endif %}
+            <figure class="figure">
+              
 
 {% if post.img2 %}
-                <img alt="Image placeholder" src="{{post.img2.url}}" class="img-fluid rounded">
-                {% else %}
-                <p></p>
-                {% endif %}
-               {% if post.text2 %}
-              <p class="lead">{{post.text2}}</h5>
-                {% else %}
-                <p></p>
-                {% endif %}
-              <figure class="figure">
-                {% if post.img3 %}
-                <img alt="Image placeholder" src="{{post.img3.url}}" class="img-fluid rounded">
-                {% else %}
-                <p></p>
-                {% endif %}
-                {% if post.title3 %}
-              <h5>{{post.title3}}</h5>
+              <img alt="Image placeholder" src="{{post.img2.url}}" class="img-fluid rounded">
               {% else %}
               <p></p>
               {% endif %}
-              </figure>
-              {% if post.text3 %}
-              <p class="lead">{{post.text3}}</p>
+             {% if post.text2 %}
+            <p class="lead">{{post.text2}}</h5>
               {% else %}
               <p></p>
               {% endif %}
-              <figure class="figure">
-            {% if post.title4 %}
-              <h5>{{post.title4}}</h5>
+            <figure class="figure">
+              {% if post.img3 %}
+              <img alt="Image placeholder" src="{{post.img3.url}}" class="img-fluid rounded">
               {% else %}
-                <p></p>
-                {% endif %}
+              <p></p>
+              {% endif %}
+              {% if post.title3 %}
+            <h5>{{post.title3}}</h5>
+            {% else %}
+            <p></p>
+            {% endif %}
             </figure>
-            {% if post.text4 %}
-              <p class="lead">{{post.text4}}</p>
-              {% else %}
-             
+            {% if post.text3 %}
+            <p class="lead">{{post.text3}}</p>
+            {% else %}
+            <p></p>
+            {% endif %}
+            <figure class="figure">
+          {% if post.title4 %}
+            <h5>{{post.title4}}</h5>
+            {% else %}
+              <p></p>
               {% endif %}
-            </article>
-            <hr>
-            <h5 class="mb-4">Komentarze</h5>
-
-            <div class="mb-3">
-              {% for comment in comments %}
-
-              <div class="media media-comment">
-                <div class="media-body">
-                  <div class="media-comment-bubble left-top">
-                    <h6 class="mt-0">  {{ comment.name }}</h6>
-                    <p class="text-sm lh-160">   {{ comment.body | linebreaks }}</p>
-                    <div class="icon-actions">
-                      
-                        <span class="text-muted">  {{ comment.created_on }}</span>
+          </figure>
+          {% if post.text4 %}
+            <p class="lead">{{post.text4}}</p>
+            {% else %}
+           
+            {% endif %}
+            <figure class="figure">
+              {% if post.title5 %}
+                <h5>{{post.title5}}</h5>
+                {% else %}
+                  <p></p>
+                  {% endif %}
+              </figure>
+              {% if post.text5 %}
+                <p class="lead">{{post.text5}}</p>
+                {% else %}
+               
+                {% endif %}
+                <figure class="figure">
+                  {% if post.title6 %}
+                    <h5>{{post.title6}}</h5>
+                    {% else %}
+                      <p></p>
+                      {% endif %}
+                  </figure>
+                  {% if post.text6 %}
+                    <p class="lead">{{post.text6}}</p>
+                    {% else %}
                    
-                     
-                    </div>
+                    {% endif %}
+                    <figure class="figure">
+                      {% if post.title7 %}
+                        <h5>{{post.title7}}</h5>
+                        {% else %}
+                          <p></p>
+                          {% endif %}
+                      </figure>
+                      {% if post.text7 %}
+                        <p class="lead">{{post.text7}}</p>
+                        {% else %}
+                       
+                        {% endif %}
+                        <figure class="figure">
+                          {% if post.title8 %}
+                            <h5>{{post.title8}}</h5>
+                            {% else %}
+                              <p></p>
+                              {% endif %}
+                          </figure>
+                          {% if post.text8 %}
+                            <p class="lead">{{post.text8}}</p>
+                            {% else %}
+                           
+                            {% endif %}
+          </article>
+          <hr>
+          <h5 class="mb-4">Komentarze</h5>
+
+          <div class="mb-3">
+            {% for comment in comments %}
+
+            <div class="media media-comment">
+              <div class="media-body">
+                <div class="media-comment-bubble left-top">
+                  <h6 class="mt-0">  {{ comment.name }}</h6>
+                  <p class="text-sm lh-160">   {{ comment.body | linebreaks }}</p>
+                  <div class="icon-actions">
+                    
+                      <span class="text-muted">  {{ comment.created_on }}</span>
+                 
+                   
                   </div>
                 </div>
               </div>
-              {% endfor %}
-
-            
-       
             </div>
-            {% if request.user.is_authenticated %}
+            {% endfor %}
 
-             
-            <form method="post" style="margin-top: 1.3em;">
-                      {% csrf_token %}
-                      {{ comment_form | crispy }}
-
-                      <button type="submit" class="btn btn-primary btn-center  btn-md">Dodaj komentarz</button>
-             </form>
-             {% else %}
-             Zaloguj się lub zarejestruj aby dodawać komentarze
-             {% endif %}
+          
+     
+          </div>
+          {% if request.user.is_authenticated %}
 
            
-     
-            </div>
+          <form method="post" style="margin-top: 1.3em;">
+                    {{ comment_form | crispy }}
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-primary btn-center  btn-md">Dodaj komentarz</button>
+           </form>
+           {% else %}
+           Zaloguj się lub zarejestruj aby dodawać komentarze
+           {% endif %}
+
+         
+   
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
     <!-- Blog (v4) -->
     <section class="slice slice-lg bg-section-secondary delimiter-top delimiter-bottom">
       <div class="container">

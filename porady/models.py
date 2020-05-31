@@ -18,6 +18,17 @@ class Porady(models.Model):
     title4 = models.CharField(blank=True, null=True, max_length=500)
     text4 = models.TextField(blank=True, null=True, default="")
 
+    title5 = models.CharField(blank=True, null=True, max_length=500)
+    text5 = models.TextField(blank=True, null=True, default="")
+
+    title6 = models.CharField(blank=True, null=True, max_length=500)
+    text6 = models.TextField(blank=True, null=True, default="")
+
+    title7 = models.CharField(blank=True, null=True, max_length=500)
+    text7 = models.TextField(blank=True, null=True, default="")
+
+    title8 = models.CharField(blank=True, null=True, max_length=500)
+    text8 = models.TextField(blank=True, null=True, default="")
     autor = models.CharField(max_length=150, default="")
 
     created_date = models.DateTimeField(
