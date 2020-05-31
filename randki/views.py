@@ -18,7 +18,7 @@ def glowna(request):
     posty = katalog.objects.filter(premium = True)
     context = {
         'kategorie': kategorie,
-        'posty': posty
+        'posty': posty,
     }
     return render(request, 'randki/glowna.html', context)
 

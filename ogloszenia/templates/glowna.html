@@ -21,36 +21,38 @@
         </div>
       </div>
     </section>
-    <section class="slice slice-lg bg-neutral" id="sct-products">
+  
+    <section class="slice slice-lg">
       <div class="container">
-        <h2 class="text-center mb-6">Kategorie firm</h2>
-
+        <div class="mb-5 text-center">
+          <h3 class="">Kategorie Ogłoszeń</h3>
+          <div class="fluid-paragraph mt-3">
+            <p class="lead lh-180">Wybierz odpowiednią kategorię.</p>
+          </div>
+        </div>
         <div class="row">
           {% for x in kategorie %}
-          <div class="card hover-shadow-lg hover-translate-y-n10 mr-5">
-            <div class="card-body text-center">
-              <div class="card-image">
-             
-              </div>
-              <div class="card-body text-center pt-0">
-                <h6><a href="{% url 'randki:kategoria' pk=x.pk %}">{{x.nazwa}}</a></h6>
-                <p class="text-sm">
-                  
-                </p>
+
+          <div class="col-lg-6">
+            <div class="card hover-shadow-lg hover-translate-y-n10" >
+    
+              <div class="card-body ">
                 
-             
+                  <div class="quote-text">
+                    <h6 class="text-center"><a href="{% url 'ogloszenia:kategoria' pk=x.pk %}">{{x.nazwa}}</a></h6>
+
+                 
+                  </div>
               </div>
-        
             </div>
           </div>
-{% endfor %}
+         {% endfor %}
         </div>
-        <!-- Load more -->
-  
+        <div class="mt-5 text-center">
+          
+        </div>
       </div>
-    
     </section>
-     
     
     <section class="slice slice-xl bg-cover bg-size--cover" style="background-image: url({% static 'assets/img/backgrounds/img-15.jpg' %}); background-position: center center;">
       <span class="mask bg-primary opacity-9"></span>

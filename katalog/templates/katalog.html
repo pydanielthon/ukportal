@@ -24,36 +24,41 @@
       </div>
     </div>
   </section>
-    <!-- Header (v16) -->
-    <section class="slice slice-lg bg-neutral" id="sct-products">
-      <div class="container">
-        <h2 class="text-center mb-6">Kategorie firm</h2>
 
-        <div class="row">
-          {% for k in kategoria %}
-          <div class="card hover-shadow-lg hover-translate-y-n10 mr-5">
-            <div class="card-body text-center">
-              <div class="card-image">
-             
-              </div>
-              <div class="card-body text-center pt-0">
-                <h6><a href="{% url 'katalog:kategoria' pk=k.pk %}">{{k.name}}</a></h6>
-                <p class="text-sm">
-                  
-                </p>
+  <section class="slice slice-lg">
+    <div class="container">
+      <div class="mb-5 text-center">
+        <h2 class="text-center mb-3">Kategorie firm</h2>
+
+        <div class="fluid-paragraph ">
+          <p class="lead lh-180">Wybierz odpowiednią kategorię.</p>
+        </div>
+      </div>
+      <div class="row">
+        {% for x in kategoria %}
+
+        <div class="col-lg-6">
+          <div class="card hover-shadow-lg hover-translate-y-n10" >
+  
+            <div class="card-body ">
+              
+                <div class="media-body text-center align-middle mb-0">
+                  <a href="{% url 'katalog:kategoria' pk=x.pk %}" class="align-middle h5 mb-0">{{x.name}}</a>
                 
-             
-              </div>
-        
+                <td>    
+                  
+              </div></td>
+
             </div>
           </div>
-{% endfor %}
         </div>
-        <!-- Load more -->
-  
+       {% endfor %}
       </div>
-    
-    </section>
+      <div class="mt-5 text-center">
+        
+      </div>
+    </div>
+  </section>
     
 
     <section class="slice">

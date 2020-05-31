@@ -21,41 +21,94 @@
         </div>
       </div>
     </section>
- 
-    <!-- Products -->
-    <section class="slice slice-lg bg-neutral" id="sct-products">
-      <div class="container">
-        <div class="row">
-          {% for x in kategorie %}
-          <div class="card hover-shadow-lg hover-translate-y-n10">
-            <div class="card-body text-center">
-              <div class="card-image">
+     <section class="slice slice-lg">
+            <span class="mask bg-primary opacity-7"></span>
+            <div class="container">
+              <div class="row row-grid">
+                <div class="col-lg-6">
+                  <div class="mb-4">
+                    <h3 class="heading h3 text-white text-uppercase mb-0" style="font-family: 'Oswald', sans-serif;">Ona szuka Jego</h3>
+                  </div>
+                  <div class="card mb-4">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-md-2">
+                        </div>
+                        
+                        <div class="col-md-10 text-center text-md-left">
+                          <h3 class="h5 mb-0">Dla kobiet</h3>
+                          <p class="mb-0">Szukających mężczyzny swojego życia</p>
+                          <a href="/randki/kategoria/1/" class="font-weight-bold">Sprawdź</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mb-4">
+                    <h3 class="heading h3 text-white text-uppercase mb-0" style="font-family: 'Oswald', sans-serif;">Ona szuka Jej</h3>
+                  </div>
+                  <div class="card mb-4">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-md-2">
+                     
+                        </div>
+                        <div class="col-md-10 text-center text-md-left">
+                          <h3 class="h5 mb-0">Dla dziewczyn</h3>
+                          <p class="mb-0">Szukających kobiety swojego życia</p>
+                          <a href="/randki/kategoria/4/" class="font-weight-bold">Sprawdź</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
              
+                </div>
+                <div class="col-lg-6">
+                  <div class="mb-4">
+                    <h3 class="heading h3 text-white text-uppercase mb-0" style="font-family: 'Oswald', sans-serif;">On szuka Jej</h3>
+                  </div>
+                  <div class="card mb-4">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-md-2">
+                        </div>
+                        <div class="col-md-10 text-center text-md-left">
+                          <h3 class="h5 mb-0">Dla mężczyzn</h3>
+                          <p class="mb-0">Szukających kobiety swojego życia</p>
+                          <a href="/randki/kategoria/3/" class="font-weight-bold">Sprawdź</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mb-4">
+                    <h3 class="heading h3 text-white text-uppercase mb-0" style="font-family: 'Oswald', sans-serif;">On szuka Jego</h3>
+                  </div>
+                  <div class="card mb-4">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-md-2">
+              
+                        </div>
+                        <div class="col-md-10 text-center text-md-left">
+                          <h3 class="h5 mb-0">Dla mężczyzn</h3>
+                          <p class="mb-0">Szukających mężczyzny swojego życia</p>
+                          <a href="/randki/kategoria/2/" class="font-weight-bold">Sprawdź</a>
+                        </div>
+                      </div>
+                    </div>
+           
+                </div>
               </div>
-              <div class="card-body text-center pt-0">
-                <h6><a href="{% url 'randki:kategoria' pk=x.pk %}">{{x.nazwa}}</a></h6>
-                <p class="text-sm">
-                  
-                </p>
-                
-             
-              </div>
-        
             </div>
-          </div>
-{% endfor %}
-        </div>
-        <!-- Load more -->
+          </section>
+    <!-- Products -->
   
-      </div>
-    </section>
     
   
     <section class="slice slice-lg delimiter-bottom">
       <div class="container">
         <!-- Title -->
-        <div class="mb-5 text-center">
-          <h3 class="h6">Najlepsze polskie firmy w UK</h3>
+        <div class="mb-5 text-center mt-5">
+          <h3 class="h2">Najlepsze polskie firmy w UK</h3>
         </div>
         <!-- Products -->
         <div class="row">
