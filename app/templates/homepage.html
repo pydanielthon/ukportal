@@ -230,7 +230,10 @@ header .overlay {
                   <li>Adres</li>
                   <li>Nr. Telefonu</li>
                   <li>E-mail</li>
-                </ul><button type="button" class="btn btn-sm btn-neutral mb-3">Zamów</button>
+                </ul>
+                <a href="{% url 'katalog:dodajfirme' %}">
+                <button type="button" class="btn btn-sm btn-neutral mb-3">Dodaj za darmo</button>
+              </a>
               </div>
             </div>
             <div class="card card-pricing popular scale-110 text-center px-3 mb-5 mb-lg-0">
@@ -244,7 +247,11 @@ header .overlay {
                   <li>Strona WWW</li>
                   <li>Linki do Social Media</li>
                   <li>Link do Google Maps</li>
-                </ul><button type="button" class="btn btn-sm btn-neutral mb-3">Zamów</button>
+                </ul>
+                
+                <a href="{% url 'app:kup' %}">
+                <button type="button" class="btn btn-sm btn-neutral mb-3">Sprwadź</button>
+              </a>
               </div>
             </div>
             <div class="card card-pricing text-center px-3 mb-5 mb-lg-0">
@@ -258,7 +265,10 @@ header .overlay {
                   <li>1 Wpis na Blogu</li>
                   <li>1 Film Video</li>
                   <li>1 Miejsce w kategorii</li>
-                </ul><button type="button" class="btn btn-sm btn-neutral mb-3">Zamawiam</button>
+                </ul>
+                <a href="{% url 'app:kup' %}">
+                <button type="button" class="btn btn-sm btn-neutral mb-3">Sprwadź</button>
+              </a>
               </div>
             </div>
             <div class="card card-pricing text-center px-3 mb-5 mb-lg-0">
@@ -272,7 +282,12 @@ header .overlay {
                   <li>2 Wpisy na Blogu</li>
                   <li>2 Filmy Video</li>
                   <li>Logo firmy w polecanych</li>
-                </ul><button type="button" class="btn btn-sm btn-neutral mb-3">Zamawiam</button>
+                </ul>
+
+                <a href="{% url 'app:kup' %}">
+                <button type="button" class="btn btn-sm btn-neutral mb-3">Sprwadź</button>
+              </a>
+
               </div>
             </div>
           </div>

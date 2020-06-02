@@ -13,25 +13,29 @@
           <div class="col-lg-2 col-6 col-sm-4 ml-lg-auto mb-5 mb-lg-0">
             <h6 class="heading mb-3">Konto</h6>
             <ul class="list-unstyled">
-              <li><a href="{% static 'pages/account-profile.html">Ustawienia</a></li>
-              <li><a href="{% static 'pages/account-settings.html">Zaloguj się</a></li>
-              <li><a href="{% static 'pages/account-billing.html">Zarejestruj się</a></li>
-              <li><a href="{% static 'pages/account-notifications.html">Wyloguj się</a></li>
+              {% if user.is_authenticated %}
+              <li><a href="{% url 'app:konto' %}">Ustawienia</a></li>
+              <li><a href="{% url 'account_logout' %}">Wyloguj się</a></li>
+              {% else %}
+              <li><a href="{% url 'authentication:login' %}">Zaloguj się</a></li>
+              <li><a href="{% url 'authentication:signup' %}">Zarejestruj się</a></li>
+              {% endif %}
+           
             </ul>
           </div>
           <div class="col-lg-2 col-6 col-sm-4 mb-5 mb-lg-0">
             <h6 class="heading mb-3">Najważniejsze linki</h6>
             <ul class="list-unstyled text-small">
-              <li><a href="#">Porady Profesjonalistów</a></li>
-              <li><a href="#">Ogłoszenia Polaków</a></li>
-              <li><a href="#">Katalog Firm</a></li>
+              <li><a href="{% url 'porady:porady_list' %}">Porady Profesjonalistów</a></li>
+              <li><a href="{% url 'ogloszenia:glowna' %}">Ogłoszenia Polaków</a></li>
+              <li><a href="{% url 'katalog:katalog_list' %}">Katalog Firm</a></li>
             </ul>
           </div>
           <div class="col-lg-2 col-sm-4 mb-5 mb-lg-0">
             <h6 class="heading mb-3">Reklama</h6>
             <ul class="list-unstyled">
-              <li><a href="#">Darmowa</a></li>
-              <li><a href="#">Płatna</a></li>
+              <li><a href="{% url 'katalog:dodajfirme' %}">Darmowa</a></li>
+              <li><a href="{% url 'app:kup' %}">Płatna</a></li>
               <li><a href="#">Kontakt</a></li>
             </ul>
           </div>
