@@ -26,7 +26,7 @@ SECRET_KEY = 'sl1*6d4&&-_&2-c%+9u+7qu&n)o(xq!-y1c-o#2yv)89#o%)qo'
 DEBUG = True
 
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['niezbednikemigranta.com', 'www.niezbednikemigranta.com']
 
 
 
